@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Metodo Secante</title>
+    <link rel="stylesheet" href="../../Styles/metodo1.css">
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+
+<body>
+    <main>
+        <header>
+        </header>
+        <nav class="navbar">
+
+            <div class="sitio"> <b>Metodos Numericos</b></div>
+            <ul class="nav-links">
+                <li><a href="../../index.html">Inicio</a></li>
+                <li><a href="./parcial1.html">Parcial 1</a></li>
+                <li><a href="#">Parcial 2</a></li>
+                <li><a href="#">Parcial 3</a></li>
+            </ul>
+        </nav>
+
+        <section class="articles-section">
+            <article class="half-width">
+                <h2>Metodo de Eliminacion de Gauss</h2>
+                <p>El método de Gauss es un algoritmo del álgebra lineal para determinar la solución de un sistema de
+                    ecuaciones lineales. Consiste en la reducción de la matriz de coeficientes a una matriz triangular
+                    superior mediante operaciones elementales de fila. Posteriormente, se resuelve el sistema de
+                    ecuaciones
+                    mediante sustitución hacia atrás.
+                </p>
+
+            </article>
+            <article class="half-width">
+                <h2>Metodo de Gauss-Jordan</h2>
+
+                <p> El metodo de Gauss-Jordan es una extension del metodo de Gauss que consiste en reducir la matriz de
+                    coeficientes a una matriz identidad. Para ello, se concatenan la matriz de coeficientes y la matriz
+                    identidad y se realizan operaciones elementales de fila hasta obtener la matriz identidad en el lado
+                    izquierdo.
+                </p>
+
+            </article>
+        </section>
+
+        <section class="text-section">
+            <h2>Formula que los define
+            </h2>
+            <p> Dado el sistema de ecuaciones: $$\begin{cases}
+                a_{11}x_1 + a_{12}x_2 + \cdots + a_{1n}x_n = b_1 \\
+                a_{21}x_1 + a_{22}x_2 + \cdots + a_{2n}x_n = b_2 \\
+                \vdots \\
+                a_{m1}x_1 + a_{m2}x_2 + \cdots + a_{mn}x_n = b_m
+                \end{cases}$$
+            </p>
+            <p>
+                Su forma matricial es: $$AX=B$$ donde A es la matriz de coeficientes, X es el vector de incógnitas y B
+                es el vector de terminos independientes.
+            </p>
+
+            <p>
+                La <b>matriz aumentada</b> [A|B] se contruye uniendo la matriz de coeficientes A con el vector de
+                terminos independientes B.
+
+                $$\left[\begin{array}{cccc|c}
+                a_{11} & a_{12} & \cdots & a_{1n} & b_1 \\
+                a_{21} & a_{22} & \cdots & a_{2n} & b_2 \\
+                \vdots & \vdots & \ddots & \vdots & \vdots \\
+                a_{m1} & a_{m2} & \cdots & a_{mn} & b_m
+                \end{array}\right]$$
+            </p>
+
+        </section>
+
+        <section class="articles-section">
+            <article class="half-width">
+                <h2>Antecedentes y Relación con Otros Métodos</h2>
+                <p> La <b>matriz triangular superior</b> del sistema es:
+                    $$\left[\begin{array}{cccc|c}
+                    u_{11} & u_{12} & \cdots & u_{1n}& r_1 \\
+                    0 & u_{22} & \cdots & u_{2n}& r_2 \\
+                    \vdots & \vdots & \ddots & \vdots & \vdots\\
+                    0 & 0 & \cdots & u_{nn}& r_m
+                    \end{array}\right]$$
+                </p>
+
+            </article>
+            <article class="half-width">
+                <h2>Formula que lo define</h2>
+
+                <p> La <b>matriz aumentada</b> del sistema de ecuaciones es:
+                    $$\left[\begin{array}{cccc|c}
+                    1 & 0 & \cdots & 0 & r_1 \\
+                    0 & 1 & \cdots & 0 & r_2 \\
+                    \vdots & \vdots & \ddots & \vdots & \vdots \\
+                    0 & 0 & \cdots & 1 & r_m
+                    \end{array}\right]$$
+                </p>
+
+            </article>
+        </section>
+
+        <section class="text-section">
+            <h2>Aplicaciones
+            </h2>
+            <p>l método de Gauss, también conocido como eliminación gaussiana, se utiliza principalmente en la
+                resolución de sistemas de ecuaciones lineales, análisis estructural en ingeniería civil y mecánica,
+                cálculos de redes eléctricas, optimización y programación lineal, y simulaciones numéricas. Por otro
+                lado, el método de Gauss-Jordan, se emplea para resolver
+                sistemas de ecuaciones lineales, calcular inversas de matrices, computar matrices en forma escalonada
+                reducida por filas, realizar análisis multivariado en estadística y resolver problemas de procesamiento
+                de señales y control en ingeniería.
+            </p>
+
+        </section>
+
+
+
+        <section class="title-section">
+            <h2>Ejemplo</h2>
+        </section>
+
+        <section class="articles-section">
+
+            <article class="half-width">
+                <h2>Algoritmo</h2>
+                <ul>
+                    <li> <b>Metodo de Eliminacion de Gauss </b> </li>
+                </ul>
+                <ol>
+                    <li>Formar la matriz aumentada [A|B].</li>
+                    <li>Mediante operaciones elementales reducir a una matriz triangular superior.</li>
+                    <li>Realizar sustitucion regresiva.</li>
+                </ol>
+
+                <ul>
+                    <li> <b>Metodo de Gauss-Jordan </b> </li>
+                </ul>
+                <ol>
+                    <li>Formar la matriz aumentada [A|B].</li>
+                    <li>Mediante operaciones elementales reducir a una matriz identidad.</li>
+                </ol>
+
+            </article>
+
+
+            <section id="slider">
+                <div class="slider-container">
+
+                    <img src="../../Images/Gauss-Jordan/Ejemplo1.PNG" class="image" alt="Imagen 1" />
+                    <img src="../../Images/Gauss-Jordan/Ejemplo2.PNG" class="image" alt="Imagen 2" style="display:none;" />
+                    <img src="../../Images/Gauss-Jordan/Ejemplo3.PNG" class="image" alt="Imagen 3" style="display:none;" />
+
+
+                    <div class="caption-container">
+                        <p>Descripción de la imagen 1</p>
+                    </div>
+
+                </div>
+                <button id="leftArrow" onclick="previousImg()">❮</button>
+                <button id="rightArrow" onclick="nextImg()">❯</button>
+
+            </section>
+
+
+
+        </section>
+
+
+
+        <nav class="navbar-centered">
+            <ul class="nav-links">
+                <li><a href="./metodoBis.html">Método de Bisección</a></li>
+                <li><a href="./metodoNewt.html">Método de Newton-Raphson</a></li>
+                <li><a href="./metodoSec.html">Método de Secante</a></li>
+                <li><a href="./metodoPunto.html">Método de Punto Fijo</a></li>
+                <li><a href="./comparacionP1.html">Comparacion de Metodos</a></li>
+            </ul>
+        </nav>
+
+        <footer>
+            <p>JESUS LEONARDO JIMENEZ GONZALEZ - 735817</p>
+        </footer>
+    </main>
+
+    <!-- Scripts -->
+    <script src="../../Scripts/sliderNewt.js"></script>
+</body>
+
+</html>

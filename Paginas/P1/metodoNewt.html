@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Metodo Newton</title>
+    <link rel="stylesheet" href="../../Styles/metodo1.css">
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+
+<body>
+    <main>
+        <header>
+        </header>
+        <nav class="navbar">
+
+            <div class="sitio"> <b>Metodos Numericos</b></div>
+            <ul class="nav-links">
+                <li><a href="../../../index.html">Inicio</a></li>
+                <li><a href="./parcial1.html">Parcial 1</a></li>
+                <li><a href="#">Parcial 2</a></li>
+                <li><a href="#">Parcial 3</a></li>
+            </ul>
+        </nav>
+
+        <section class="text-section">
+            <h2>Método de Newton-Raphson
+            </h2>
+            <p>El método de Newton-Raphson es una técnica iterativa para encontrar raíces de ecuaciones no lineales de
+                la forma
+                f(x)=0. Se basa en la aproximación de funciones mediante su derivada, utilizando la idea de que una
+                función puede ser localmente lineal en un punto cercano a la raíz.
+                La idea central del método es usar la tangente de la función en un punto inicial
+                para aproximar la intersección de esta tangente con el eje
+                x, obteniendo así una mejor estimación de la raíz. El proceso se repite hasta obtener una solución
+                suficientemente precisa.
+            </p>
+
+        </section>
+
+        <section class="articles-section">
+            <article class="half-width">
+                <h2>Antecedentes y Relación con Otros Métodos</h2>
+                <p>El método fue desarrollado por Isaac Newton en el siglo XVII y más tarde refinado por Joseph Raphson
+                    en 1690. Originalmente, Newton lo utilizó en el contexto del desarrollo del cálculo, mientras que
+                    Raphson formuló una versión más simple y eficiente del mismo.
+
+                    Se relaciona con otros métodos de resolución de ecuaciones no lineales, como el <b> método de
+                        bisección</b>, que divide el intervalo en dos partes y selecciona la que contiene la raíz. Es
+                    más lento pero garantiza convergencia.
+                    Método de la secante: Similar a Newton, pero reemplaza la derivada por una diferencia finita,
+                    evitando la necesidad de calcular
+                    f′(x).
+                    Método de la falsa posición: Similar a la bisección, pero usando interpolación lineal en cada
+                    iteración.
+                    El método de Newton-Raphson es uno de los más rápidos cuando se usa correctamente, aunque requiere
+                    una buena estimación inicial y una función diferenciable en el intervalo de interés.
+                </p>
+
+            </article>
+            <article class="half-width">
+                <h2>Formula que lo define</h2>
+
+                <p> $$x_{n+1} = x_n - \frac{f(x_n)}{f'(x_n)}
+                    $$</p>
+                <p>
+                    Donde:
+                <ul>
+                    <li>\(\boldsymbol{x_{n+1}}\) es la siguiente aproximación de la raíz.</li>
+                    <li>\(\boldsymbol{x_n}\) es la aproximación actual de la raíz.</li>
+                    <li>\(\boldsymbol{f(x_n)}\) es el valor de la función en la aproximación actual.</li>
+                    <li>\(\boldsymbol{f'(x_n)}\) es el valor de la derivada de la función en la aproximación actual.
+                    </li>
+                </ul>
+                </p>
+            </article>
+        </section>
+
+        <section class="text-section">
+            <h2>Aplicaciones
+            </h2>
+            <p>Una aplicacion del metodo en ciencias computacionales es para resolver el modelado 3D de superficies implicitas,
+                que se difinen por ecuaciones del tipo \(f(x,y,z)=0\). En este caso, el metodo petmite encontrar los puntos
+                de interseccion o curvas de nivel donde la superficie cumple con ciertas condiciones.
+            </p>
+        <p>
+        Las ventajas de este metodo incluten una alta precicion, eficiencia iterativa, generalidad, aplicabilidad en multiples dimensiones
+        y optimizacion de procesamiento.
+        </p>
+
+        </section>
+
+
+
+        <section class="title-section">
+            <h2>Ejemplo</h2>
+        </section>
+
+        <section class="articles-section">
+
+            <article class="half-width">
+                <h2>Algoritmo</h2>
+                <ol>
+                    <li>Definir una funcion\(\boldsymbol{f(x)}\) y calcular su derivada \(\boldsymbol{f'(x)}\). </li>
+                    <li>Elegir un valor inicial para \(\boldsymbol{x_0}\).</li>
+                    <li>Iterar hasta cumplir con la tolerancia.</li>
+                    <li>\(\boldsymbol{(x_{n+1})}\) es la aproxiamcion de la raiz.</li>
+                </ol>
+                </p>
+            </article>
+
+
+            <section id="slider">
+                <div class="slider-container">
+
+                    <img src="../../Images/Newt/Ejemplo1.PNG" class="image" alt="Imagen 1" />
+                    <img src="../../Images/Newt/Ejemplo2.PNG" class="image" alt="Imagen 2" style="display:none;" />
+                    <img src="../../Images/Newt/Ejemplo3.PNG" class="image" alt="Imagen 3" style="display:none;" />
+                    <div class="caption-container">
+                        <p>Descripción de la imagen 1</p>
+                    </div>
+
+                </div>
+                <button id="leftArrow" onclick="previousImg()">❮</button>
+                <button id="rightArrow" onclick="nextImg()">❯</button>
+
+            </section>
+
+
+
+        </section>
+
+
+        <nav class="navbar-centered">
+            <ul class="nav-links">
+                <li><a href="./metodoBis.html">Método de Bisección</a></li>
+                <li><a href="./metodoSec.html">Método de Secante</a></li>
+                <li><a href="./metodoPunto.html">Método de Punto Fijo</a></li>
+                <li><a href="./comparacionP1.html">Comparacion de Metodos</a></li>
+                <li><a href="./metodoGauss-Jordan.html">Método de Gauss y Gauss-Jordan</a></li>
+            </ul>
+        </nav>
+
+        <footer>
+            <p>JESUS LEONARDO JIMENEZ GONZALEZ - 735817</p>
+        </footer>
+    </main>
+
+    <!-- Scripts -->
+    <script src="../../Scripts/sliderNewt.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comparacion de Metodos</title>
+    <link rel="stylesheet" href="../../Styles/index.css">
+
+</head>
+
+<body>
+    <main>
+        <header>
+        </header>
+        <nav class="navbar">
+
+            <div class="sitio"> <b>Metodos Numericos</b></div>
+            <ul class="nav-links">
+                <li><a href="../../index.html">Inicio</a></li>
+                <li><a href="./parcial1.html">Parcial 1</a></li>
+                <li><a href="#">Parcial 2</a></li>
+                <li><a href="#">Parcial 3</a></li>
+            </ul>
+        </nav>
+
+        <section class="title-section">
+            <h2>
+                Comparación de Métodos de Solucion de Ecuaciones No Lineales
+            </h2>
+
+
+
+        </section>
+        <div class="table-container">
+
+
+            <table>
+                <tr>
+                    <th>Método</th>
+                    <th>Tipo</th>
+                    <th>Convergencia</th>
+                    <th>Requiere Derivada</th>
+                    <th>Velocidad de Convergencia</th>
+                    <th>Razón de No Convergencia</th>
+                    <th>Ventajas</th>
+                    <th>Desventajas</th>
+                </tr>
+                <tr>
+                    <td>Bisección</td>
+                    <td>Cerrado</td>
+                    <td>Garantizada si hay cambio de signo</td>
+                    <td>No</td>
+                    <td>Lenta (convergencia lineal)</td>
+                    <td>No converge si no hay cambio de signo</td>
+                    <td>Robusto y seguro</td>
+                    <td>Lento, requiere intervalo inicial</td>
+                </tr>
+                <tr>
+                    <td>Newton-Raphson</td>
+                    <td>Abierto</td>
+                    <td>Depende de la función</td>
+                    <td>Sí</td>
+                    <td>Rápida (convergencia cuadrática)</td>
+                    <td>No converge si la derivada es cero o la elección inicial es mala</td>
+                    <td>Alta precisión, rápida cerca de la raíz</td>
+                    <td>Requiere derivada, puede oscilar o divergir</td>
+                </tr>
+                <tr>
+                    <td>Secante</td>
+                    <td>Abierto</td>
+                    <td>Depende de la función</td>
+                    <td>No</td>
+                    <td>Superlineal, más rápida que bisección</td>
+                    <td>No converge si los puntos iniciales no están bien elegidos</td>
+                    <td>No necesita derivada, mejora Newton</td>
+                    <td>Puede fallar, requiere dos puntos iniciales</td>
+                </tr>
+                <tr>
+                    <td>Punto Fijo</td>
+                    <td>Abierto</td>
+                    <td>Depende de g(x)</td>
+                    <td>No</td>
+                    <td>Puede ser lento</td>
+                    <td>No converge si |g'(x)| ≥ 1</td>
+                    <td>Fácil de implementar</td>
+                    <td>Puede no converger</td>
+                </tr>
+            </table>
+
+        </div>
+        <nav class="navbar-centered">
+            <ul class="nav-links">
+                <li><a href="./metodoBis.html">Método de Bisección</a></li>
+                <li><a href="./metodoNewt.html">Método de Newton-Raphson</a></li>
+                <li><a href="./metodoSec.html">Método de Secante</a></li>
+                <li><a href="./metodoPunto.html">Método de Punto Fijo</a></li>
+                <li><a href="./metodoGauss-Jordan.html">Método de Gauss y Gauss-Jordan</a></li>
+
+            </ul>
+        </nav>
+
+        <footer>
+            <p>JESUS LEONARDO JIMENEZ GONZALEZ - 735817</p>
+        </footer>
+
+
+    </main>
+
+   
+</body>
+
+</html>

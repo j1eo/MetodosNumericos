@@ -1,0 +1,12 @@
+:root {
+    --font-main: Arial, sans-serif; 
+    --font-heading: Arial, serif; /* Custom heading font using Georgia */
+    --color-foreground: 	#999999; 
+    --color-background: #D8D8D8; 
+    --color-text: #555; 
+    --color-arrow: #820632;
+    --color-dark: #333; 
+    --color-light: #fff;
+    --color-translucent:   rgba(255, 255, 255, 0.5);
+    --color-shadow: rgba(0, 0, 0, 0.1);
+}

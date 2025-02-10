@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Metodo Secante</title>
+    <link rel="stylesheet" href="../../Styles/metodo1.css">
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+
+<body>
+    <main>
+        <header>
+        </header>
+        <nav class="navbar">
+
+            <div class="sitio"> <b>Metodos Numericos</b></div>
+            <ul class="nav-links">
+                <li><a href="../../index.html">Inicio</a></li>
+                <li><a href="./parcial1.html">Parcial 1</a></li>
+                <li><a href="#">Parcial 2</a></li>
+                <li><a href="#">Parcial 3</a></li>
+            </ul>
+        </nav>
+
+        <section class="text-section">
+            <h2>Método de Secante
+            </h2>
+            <p> Es un procedimiento itrrativo utilizado para aproximar raices de ecuaciones no lineales. Se utiliza
+                una apriximacion lineal de la función mediante dos puntos en lugar de una derivada como en el método de
+                Newton-Raphson.
+            </p>
+
+        </section>
+
+        <section class="articles-section">
+            <article class="half-width">
+                <h2>Antecedentes y Relación con Otros Métodos</h2>
+                <p>El método de la secante tiene raíces en el <b>método de Newton-Raphson</b>, que también busca
+                    encontrar las
+                    raíces de una función. La diferencia clave es que, mientras que el método de Newton-Raphson utiliza
+                    la derivada de la función para construir la aproximación de la raíz, el método de la secante emplea
+                    dos valores previos de la función para formar una aproximación a la derivada, lo que elimina la
+                    necesidad de conocer la derivada explícita de la función
+                </p>
+
+            </article>
+            <article class="half-width">
+                <h2>Formula que lo define</h2>
+
+                <p> $$x_{n+1} = x_n - {f(x_n)} \frac{x_n-x_{n-1}}{f(x_n)-f(x_{n-1})}
+                    $$</p>
+                <p>
+                    Donde:
+                <ul>
+                    <li>\(\boldsymbol{x_n}\) es la aproximación actual de la raíz.</li>
+                    <li>\(\boldsymbol{x_{n+1}}\) es la siguiente aproximación de la raíz.</li>
+                    <li>\(\boldsymbol{x_{n-1}}\) es la aproximación anterior de la raíz.</li>
+                    <li>\(\boldsymbol{f(x_n)}\) es el valor de la función evaluada en la aproximación actual.</li>
+                    <li>\(\boldsymbol{f(x_{n-1})}\) es el valor de la función evaluada en la aproximación anterior.
+                    </li>
+                </ul>
+                </p>
+            </article>
+        </section>
+
+        <section class="text-section">
+            <h2>Aplicaciones
+            </h2>
+            <p>Se puede aplicar de las mismas maneras que los otros metodos para encontrar raices, este tiene la vnetaja
+                de ser muy eficiente y no requerir de derivadas como el metodo de Newton-Raphson, pero al igual que este
+                puede no converger al ser un metodo abierto.
+            </p>
+
+        </section>
+
+
+
+        <section class="title-section">
+            <h2>Ejemplo</h2>
+        </section>
+
+        <section class="articles-section">
+
+            <article class="half-width">
+                <h2>Algoritmo</h2>
+                <ol>
+                    <li>Elegir dos valores iniciales \(\boldsymbol{x_0}\) y \(\boldsymbol{x_1}\). </li>
+                    <li>Iterar hasta cumplir con la tolerancia.</li>
+                    <li>\(\boldsymbol{(x_{n+1})}\) es la aproxiamcion de la raiz.</li>
+                </ol>
+                </p>
+            </article>
+
+
+            <section id="slider">
+                <div class="slider-container">
+
+                    <img src="../../Images/Sec/Ejemplo1.PNG" class="image" alt="Imagen 1" />
+                    <img src="../../Images/Sec/Ejemplo2.PNG" class="image" alt="Imagen 2" style="display:none;" />
+                    <img src="../../Images/Sec/Ejemplo3.PNG" class="image" alt="Imagen 3" style="display:none;" />
+
+                    <div class="caption-container">
+                        <p>Descripción de la imagen 1</p>
+                    </div>
+
+                </div>
+                <button id="leftArrow" onclick="previousImg()">❮</button>
+                <button id="rightArrow" onclick="nextImg()">❯</button>
+
+            </section>
+
+
+
+        </section>
+
+
+
+        <nav class="navbar-centered">
+            <ul class="nav-links">
+                <li><a href="./metodoBis.html">Método de Bisección</a></li>
+                <li><a href="./metodoNewt.html">Método de Newton-Raphson</a></li>
+                <li><a href="./metodoPunto.html">Método de Punto Fijo</a></li>
+                <li><a href="./comparacionP1.html">Comparacion de Metodos</a></li>
+                <li><a href="./metodoGauss-Jordan.html">Método de Gauss y Gauss-Jordan</a></li>
+            </ul>
+        </nav>
+
+        <footer>
+            <p>JESUS LEONARDO JIMENEZ GONZALEZ - 735817</p>
+        </footer>
+    </main>
+
+    <!-- Scripts -->
+    <script src="../../Scripts/sliderSec.js"></script>
+</body>
+
+</html>

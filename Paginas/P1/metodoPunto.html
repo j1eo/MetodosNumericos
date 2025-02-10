@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Metodo Secante</title>
+    <link rel="stylesheet" href="../../Styles/metodo1.css">
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+
+<body>
+    <main>
+        <header>
+        </header>
+        <nav class="navbar">
+
+            <div class="sitio"> <b>Metodos Numericos</b></div>
+            <ul class="nav-links">
+                <li><a href="../../index.html">Inicio</a></li>
+                <li><a href="./parcial1.html">Parcial 1</a></li>
+                <li><a href="#">Parcial 2</a></li>
+                <li><a href="#">Parcial 3</a></li>
+            </ul>
+        </nav>
+
+        <section class="text-section">
+            <h2>Método de Punto Fijo
+            </h2>
+            <p> El método de punto fijo es un procedimiento iterativo utilizado para encontrar soluciones a ecuaciones
+                de la forma
+                f(x)=0. En lugar de resolver directamente esta ecuación, se reescribe en la forma x=g(x) y se encuentra
+                un valor de x tal que la igualdad se cumpla.
+            </p>
+
+        </section>
+
+        <section class="articles-section">
+            <article class="half-width">
+                <h2>Antecedentes y Relación con Otros Métodos</h2>
+                <p>El Teorema del Punto Fijo de Banach, también conocido como el Teorema del Contracción de Banach, es
+                    un resultado fundamental en la teoría de espacios métricos completos. Fue introducido por el
+                    matemático polaco Stefan Banach en 1922 y establece las condiciones bajo las cuales una función
+                    tiene un único punto fijo.
+                </p>
+
+            </article>
+            <article class="half-width">
+                <h2>Formula que lo define</h2>
+
+                <p> Sea \({f(x)=0}\) la ecuación que se desea resolver. Se reescribe en la forma
+                    \({x=g(x)}\). Entonces:
+                    \({x_{n+1}=g(x_n)}\) es la iteración que se realiza para encontrar la raíz.
+
+                </p>
+                <p>
+                    Donde:
+                <ul>
+                    <li>\(\boldsymbol{x_n}\) es la aproximación actual de la raíz.</li>
+                    <li>\(\boldsymbol{x_{n+1}}\) es la siguiente aproximación de la raíz.</li>
+                    <li>\(\boldsymbol{g(x_n)}\) es el valor de la función evaluada en la funcion auxiliar.</li>
+                    </ul>
+                </p>
+            </article>
+        </section>
+
+        <section class="text-section">
+            <h2>Aplicaciones
+            </h2>
+            <p>Se puede aplicar de las mismas maneras que los otros metodos para encontrar raices, este tiene la vnetaja
+                de ser muy eficiente y no requerir de derivadas como el metodo de Newton-Raphson, pero al igual que este
+                puede no converger al ser un metodo abierto.
+            </p>
+
+        </section>
+
+
+
+        <section class="title-section">
+            <h2>Ejemplo</h2>
+        </section>
+
+        <section class="articles-section">
+
+            <article class="half-width">
+                <h2>Algoritmo</h2>
+                <ol>
+                    <li>Encontrar una funcion \(\boldsymbol{g(x)}\) tal que \(\boldsymbol{x=g(x)}\). </li>
+                    <li>Escoger un valor inicial \(\boldsymbol{x_0}\).</li>
+                    <li>Verificar que \(\boldsymbol{\left| g'(x) \right| < 1}\).</li>
+                    <li>Iterar hasta cumplir con la tolerancia.</li>
+                    <li>\(\boldsymbol{(x_{n+1})}\) es la aproxiamcion de la raiz.</li>
+                </ol>
+                </p>
+            </article>
+
+
+            <section id="slider">
+                <div class="slider-container">
+
+                    <img src="../../Images/Punto/Ejemplo1.PNG" class="image" alt="Imagen 1" />
+                    <img src="../../Images/Punto/Ejemplo2.PNG" class="image" alt="Imagen 2" style="display:none;" />
+                    <img src="../../Images/Punto/Ejemplo3.PNG" class="image" alt="Imagen 3" style="display:none;" />
+                    <img src="../../Images/Punto/Ejemplo4.PNG" class="image" alt="Imagen 4" style="display:none;" />
+
+                    <div class="caption-container">
+                        <p>Descripción de la imagen 1</p>
+                    </div>
+
+                </div>
+                <button id="leftArrow" onclick="previousImg()">❮</button>
+                <button id="rightArrow" onclick="nextImg()">❯</button>
+
+            </section>
+
+
+
+        </section>
+
+
+
+        <nav class="navbar-centered">
+            <ul class="nav-links">
+                <li><a href="./metodoBis.html">Método de Bisección</a></li>
+                <li><a href="./metodoNewt.html">Método de Newton-Raphson</a></li>
+                <li><a href="./metodoSec.html">Método de Secante</a></li>
+                <li><a href="./comparacionP1.html">Comparacion de Metodos</a></li>
+                <li><a href="./metodoGauss-Jordan.html">Método de Gauss y Gauss-Jordan</a></li>
+            </ul>
+        </nav>
+
+        <footer>
+            <p>JESUS LEONARDO JIMENEZ GONZALEZ - 735817</p>
+        </footer>
+    </main>
+
+    <!-- Scripts -->
+    <script src="../../Scripts/sliderPunto.js"></script>
+</body>
+
+</html>

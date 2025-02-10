@@ -1,0 +1,7 @@
+/* globals */
+@import './globals/vars.css';
+@import './globals/globals.css';
+
+/* pages */
+@import './pages/home.css';
+
