@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Método de Montante</title>
+    <link rel="stylesheet" href="../../Styles/index.css">
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+
+<body>
+    <main>
+        <header></header>
+        <nav class="navbar">
+            <div class="sitio"><b>Métodos Numéricos</b></div>
+            <ul class="nav-links">
+                <li><a href="../../index.html">Inicio</a></li>
+                <li><a href="../P1/parcial1.html">Parcial 1</a></li>
+                <li><a href="./parcial2.html">Parcial 2</a></li>
+                <li><a href="#">Parcial 3</a></li>
+            </ul>
+        </nav>
+
+
+        <section class="articles-section">
+            <article class="half-width">
+                <h2>Metodo de Montante</h2>
+                <p>El método de Montante es una metodo numerico utilizado
+                    para resolver sistemas de ecuaciones lineales. Es una variante del método de Gauss-Jordan que
+                    destaca por su simplicidad y porque evita trabajar con fracciones durante los cálculos intermedios,
+                    lo cual reduce errores y facilita los cálculos manuales.
+
+                    Se basa en el uso de determinantes y un esquema tabular, donde se realizan transformaciones
+                    sucesivas de una matriz ampliada (que incluye los coeficientes del sistema y los términos
+                    independientes) hasta obtener la solución final.
+                </p>
+
+            </article>
+        </section>
+
+        <section class="articles-section">
+            <article class="half-width">
+                <h2>Formula que lo define
+                </h2>
+                <p> Dado un sistema de ecuaciones, realizar el siguiente procedimiento:
+                    $$N.E = \frac{(P)(E.A)-(E.C.F.P)(E.C.C.P)}{P.A}
+                    $$
+
+                <ul>
+                    <li>\(\boldsymbol{N.E}\) = Nuevo Elemento</li>
+                    <li>\(\boldsymbol{P}\) = Pivote</li>
+                    <li>\(\boldsymbol{E.A}\) = Elemento Actual</li>
+                    <li>\(\boldsymbol{E.C.F.P}\) = Elemento Correspondiente a la Fila del Pivote</li>
+                    <li>\(\boldsymbol{E.C.C.P}\) = Elemento Correspondiente a la Columna del Pivote</li>
+                    <li>\(\boldsymbol{P.A}\) = Pivote Anterior</li>
+                </ul>
+                </p>
+
+
+
+            </article>
+            <article class="half-width">
+                <h2>Antecedentes y Relación con Otros Métodos</h2>
+                <p> Fue desarrollado por Rene Mario Montante Pardo, profesor en FIME. Se basa en la eliminacion de
+                    Gauss-Jordan
+                    pero evita eliminaciones intermedias para trabajar con enteros.
+                </p>
+        </section>
+
+
+        <section class="text-section">
+            <h2>Aplicaciones
+            </h2>
+            <p>Se ha aplicado en computacion debido a su eficiencia y a que evita errores de redondeo al operar
+                solamente con numeros enteros.
+            </p>
+
+        </section>
+
+
+
+
+        <section class="title-section">
+            <h2>Ejemplo</h2>
+        </section>
+
+        <section class="articles-section">
+
+            <article class="half-width">
+                <h2>Algoritmo</h2>
+                <ul>
+                    <li>Construir la matriz aumentada con los coeficientes del sistema y los términos independientes.
+                    </li>
+                    <li>Definir el primer Pivote Anterior como P.A=1.</li>
+                    <li>Seleccionar el primer pivote, que debe ser un elemento no nulo de la diagonal principal.</li>
+                    <li>Eliminar valores en la columna del pivote, excepto el pivote.
+                    </li>
+                    <li>Calcular los nuevos valores para los elementos que no formen parte de la fila del pivote/li>
+                    <li>Repetir el proceso para cada pivote hasta obtener una matriz diagonal con los valores de las
+                        variables en los términos independientes.</li>
+                    <li>Normalizar la matriz aumentada</li>
+                </ul>
+
+
+            </article>
+
+
+            <section id="slider">
+                <div class="slider-container">
+
+                    <img src="../../Images/Gauss-Jordan/Ejemplo1.PNG" class="image" alt="Imagen 1" />
+                    <img src="../../Images/Gauss-Jordan/Ejemplo2.PNG" class="image" alt="Imagen 2"
+                        style="display:none;" />
+                    <img src="../../Images/Gauss-Jordan/Ejemplo3.PNG" class="image" alt="Imagen 3"
+                        style="display:none;" />
+
+
+                    <div class="caption-container">
+                        <p>Descripción de la imagen 1</p>
+                    </div>
+
+                </div>
+                <button id="leftArrow" onclick="previousImg()">❮</button>
+                <button id="rightArrow" onclick="nextImg()">❯</button>
+
+            </section>
+
+
+
+        </section>
+
+        <div class="title-section">
+            <h2>Calculadora de Metodo de Montante</h2>
+        </div>
+
+        <div class="text-section">
+
+            <label for="dimension" class="form-label">Ingrese Dimensión del Sistema de Ecuaciones (nxn):</label>
+            <select id="dimension" name="dimension" class="form-select" required>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+            </select>
+            <button class="form-button" onclick="createMatrixInputs()">Crear Matriz</button>
+
+            <button class="form-button" onclick="solveMatrix()">Resolver Matriz</button>
+        </div>
+
+        <div id="matrixInputs" class="table-container"></div>
+        <div id="matrixOutput"></div>
+
+        <nav class="navbar-centered">
+            <ul class="nav-links">
+                <li><a href="../P1/metodoGauss-Jordan.html">Método de Gauss y Gauss-Jordan</a></li>
+                <li><a href="./metodoJacobi.html">Método de Gauss-Seidel y Jacobi</a></li>
+
+                <li><a href="./metodoLagrange">Método de Interpolacion de Lagrange</a></li>
+                <li><a href="./metodosRegresion">Métodos de Regresion</a></li>
+
+            </ul>
+        </nav>
+
+        <footer>
+            <p>JESUS LEONARDO JIMENEZ GONZALEZ - 735817</p>
+        </footer>
+    </main>
+
+    <script src="../../Scripts/montante.js"></script>
+</body>
+
+</html>

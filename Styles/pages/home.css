@@ -315,6 +315,92 @@ tr:hover {
     color: var(--color-dark);
 }
 
+/* Contenedor de la matriz */
+.matrix-grid {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1em;
+}
+
+/* Filas de la matriz */
+.matrix-row {
+    display: flex;
+    gap: 1em;
+}
+
+/* Inputs de la matriz */
+.matrix-input {
+    width: 6em;
+    padding: 0.5em;
+    font-size: 1.2rem;
+    text-align: center;
+    border: 2px solid var(--color-dark);
+    border-radius: 5px;
+    outline: none;
+    transition: 0.3s;
+    background: var(--color-light);
+}
+
+.matrix-input:focus {
+    border-color:var(--color-dark);
+    background: var(--color-translucent);
+}
+
+.matrix-table {
+    border-collapse: collapse;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.matrix-table td {
+    border: 1px solid var(--color-dark);
+    padding: 0.5em;
+    text-align: center;
+    min-width: 50px;
+}
+
+.step {
+    margin-bottom: 15px;
+}
+
+/*Form*/
+.form-group {
+    display: flex;
+    align-items: center;
+    gap: 1em;
+}
+
+.form-label {
+    font-size: 1.2em;
+    font-weight: bold;
+    color: var(--color-dark);
+}
+
+.form-select {
+    padding: 5px;
+    font-size: 1em;
+    border-radius: 5px;
+    background-color: #fff;
+    width: 3em; /* Tamaño más compacto */
+}
+
+.form-button {
+    margin: 1em;
+    padding: 0.5em;
+    font-size: 1em;
+    font-weight: bold;
+    color: var(--color-light);
+    background-color: var(--color-dark);
+    border: none;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.form-button:hover {
+    background-color: var(--color-text);
+}
+
 
 /* Footer */
 footer {
@@ -368,6 +454,11 @@ footer p {
     }
     th, td {
         padding: 8px;
+    }
+    .matrix-input {
+        width: 4.5em;
+        margin: 0.3em;
+        
     }
 }
 
