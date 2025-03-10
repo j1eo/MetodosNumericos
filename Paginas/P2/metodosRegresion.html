@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Métodos de Regresion</title>
+    <link rel="stylesheet" href="../../Styles/index.css">
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+
+<body>
+    <main>
+        <header></header>
+        <nav class="navbar">
+            <div class="sitio"><b>Métodos Numéricos</b></div>
+            <ul class="nav-links">
+                <li><a href="../../index.html">Inicio</a></li>
+                <li><a href="../P1/parcial1.html">Parcial 1</a></li>
+                <li><a href="./parcial2.html">Parcial 2</a></li>
+                <li><a href="#">Parcial 3</a></li>
+            </ul>
+        </nav>
+
+        <section class="title-section">
+            <h2>Metodos de Regresion</h2>
+
+
+        </section>
+        <section class="articles-section">
+            <article class="half-width">
+                <h2>Metodo de Regresinon Lineal</h2>
+                <p>
+                    <strong>Regresión Lineal:</strong> La regresión lineal modela la relación entre una variable
+                    dependiente \(y\) y una variable independiente \(x\). La ecuación es:
+                    $$y = \beta_0 + \beta_1 x $$
+                    donde:
+                <ul>
+                    <li>\(\beta_0\): Intersección, valor de \(y\) cuando \(x = 0\).</li>
+                    <li>\(\beta_1\): Pendiente, cambio promedio en \(y\) por unidad de cambio en \(x\).</li>
+
+                </ul>
+                </p>
+
+            </article>
+            <article class="half-width">
+                <h2>Metodo de Regresion Lineal Multiple</h2>
+                <p>
+                    <strong>Regresión Lineal Múltiple:</strong> Extiende la regresión lineal a múltiples variables
+                    independientes \((x_1, x_2, \dots, x_n)\). La ecuación es:
+                    $$y = \beta_0 + \beta_1 x_1 + \beta_2 x_2 + \dots + \beta_n x_n + $$
+                    donde:
+                <ul>
+                    <li>\(\beta_0\): Intersección o término constante.</li>
+                    <li>\(\beta_i\): Coeficiente que mide el impacto de \(x_i\) en \(y\).</li>
+
+                    </p>
+
+            </article>
+            <article class="half-width">
+                <h2>Metodo de Regresion Polinommial</h2>
+                <p>
+                    <strong>Regresión Polinomial:</strong> Adapta la regresión lineal para modelar relaciones no
+                    lineales entre \(y\) y \(x\) utilizando potencias de \(x\). La ecuación es:
+                    $$y = \beta_0 + \beta_1 x + \beta_2 x^2 + \dots + \beta_n x^n $$
+                    donde:
+                <ul>
+                    <li>\(x^2, x^3, \dots, x^n\): Terminos que capturan tendencias no lineales en los datos.</li>
+                    <li>\(\beta_i\): Coeficientes que determinan la forma del ajuste.</li>
+
+                </ul>
+                </p>
+            </article>
+        </section>
+
+        <section class="articles-section">
+
+            <article class="half-width">
+                <h2>Formula de la Regresion Lineal Multiple
+                </h2>
+                <p>
+                    $$\begin{bmatrix}
+                    n & \sum x_1 & \sum x_2 & \cdots & \sum x_k \\
+                    \sum x_1 & \sum x_1^2 & \sum x_1 x_2 & \cdots & \sum x_1 x_k \\
+                    \sum x_2 & \sum x_1 x_2 & \sum x_2^2 & \cdots & \sum x_2 x_k \\
+                    \vdots & \vdots & \vdots & \ddots & \vdots \\
+                    \sum x_k & \sum x_1 x_k & \sum x_2 x_k & \cdots & \sum x_k^2
+                    \end{bmatrix}
+                    \begin{bmatrix}
+                    \beta_0 \\
+                    \beta_1 \\
+                    \beta_2 \\
+                    \vdots \\
+                    \beta_k
+                    \end{bmatrix}
+                    =
+                    \begin{bmatrix}
+                    \sum y \\
+                    \sum x_1 y \\
+                    \sum x_2 y \\
+                    \vdots \\
+                    \sum x_k y
+                    \end{bmatrix}$$
+                </p>
+
+
+            </article>
+            <article class="half-width">
+                <h2>Formula de la Regresion Polinomial
+                </h2>
+                <p>
+                    $$\begin{bmatrix}
+                    n & \sum x & \sum x^2 & \cdots & \sum x^k \\
+                    \sum x & \sum x^2 & \sum x^3 & \cdots & \sum x^{k+1} \\
+                    \sum x^2 & \sum x^3 & \sum x^4 & \cdots & \sum x^{k+2} \\
+                    \vdots & \vdots & \vdots & \ddots & \vdots \\
+                    \sum x^k & \sum x^{k+1} & \sum x^{k+2} & \cdots & \sum x^{2k}
+                    \end{bmatrix}
+                    \begin{bmatrix}
+                    \beta_0 \\
+                    \beta_1 \\
+                    \beta_2 \\
+                    \vdots \\
+                    \beta_k
+                    \end{bmatrix}
+                    =
+                    \begin{bmatrix}
+                    \sum y \\
+                    \sum xy \\
+                    \sum x^2 y \\
+                    \vdots \\
+                    \sum x^k y
+                    \end{bmatrix}$$
+                </p>
+
+
+
+
+
+
+            </article>
+        </section>
+
+
+        <section class="articles-section">
+            <article class="half-width">
+                <h2>Antecedentes y Relación con Otros Métodos</h2>
+                <p> La regresión, como técnica estadística, tiene sus raíces en el siglo XIX, cuando Francis Galton y
+                    Karl Pearson introdujeron el concepto para estudiar relaciones entre variables. Originalmente
+                    utilizada para analizar patrones de herencia genética, esta herramienta evolucionó rápidamente para
+                    abordar problemas más amplios en economía, ingeniería y ciencias sociales. Su fundamento en los
+                    métodos de mínimos cuadrados permitió que se desarrollaran variantes como la regresión lineal
+                    múltiple, que analiza varias variables simultáneamente, y la regresión polinomial, que modela
+                    relaciones no lineales. Con el tiempo, se convirtió en la base para técnicas modernas de aprendizaje
+                    automático y análisis predictivo.
+                </p>
+            </article>
+            <article class="half-width">
+
+                <h2>Aplicaciones
+                </h2>
+                <p>Las aplicaciones de la regresión son amplias y abarcan múltiples disciplinas. En economía, se utiliza
+                    para prever tendencias de mercado y analizar el impacto de políticas económicas. En ingeniería, es
+                    clave para modelar sistemas físicos y realizar simulaciones. En salud, ayuda a relacionar factores
+                    de riesgo con enfermedades, mientras que en ciencias sociales, se usa para entender patrones de
+                    comportamiento humano. Además, la regresión polinomial es especialmente útil en ciencias naturales,
+                    como la física, para modelar fenómenos complejos con precisión. Su versatilidad la convierte en una
+                    herramienta indispensable para el análisis y la toma de decisiones basadas en datos.
+                </p>
+            </article>
+
+        </section>
+
+
+
+
+        
+        <section class="articles-section">
+            
+            <article class="half-width">
+                <h2>Algoritmo</h2>
+                
+                
+                <p><strong>Regresión Lineal Múltiple:</strong></p>
+                <ol>
+                    <li>Recolectar los datos de las variables independientes \((x_1, x_2, \dots, x_p)\) y la variable dependiente \(y\).</li>
+                            <li>Formar la matriz de diseño \(X\).</li>
+                            <li>Resolver el sistema de ecuaciones normal
+                            </li>
+                            <li>Formar la ecuación del modelo: 
+                                $$y = \beta_0 + \beta_1 x_1 + \beta_2 x_2 + \dots + \beta_p x_p$$
+                            </li>
+                            <li>Validar el modelo utilizando métricas como \(R^2\) </li>
+                        </ol>
+                    </li>
+                    
+                    
+                    
+                </article>
+                <article class="half-width">
+                    <p> <strong>Regresión Polinomial:</strong></p>
+                    <ol>
+                        <li>Recolectar los datos de la variable independiente \(x\) y la variable dependiente \(y\).</li>
+                        <li>Decidir el grado del polinomio (\(d\)) que se ajustará al modelo.</li>
+                        <li>Transformar los datos, incluyendo potencias de \(x\) hasta \(x^d\) como nuevas variables independientes (e.g., \(x^2, x^3, \dots, x^d\)).</li>
+                            <li>Formar la matriz de siguierndo el metodo de minimos cuadrados.</li>
+                            <li>Resolver el sistema de ecuaciones.
+                            </li>
+                            <li>Formar la ecuación del modelo: 
+                                $$y = \beta_0 + \beta_1 x + \beta_2 x^2 + \dots + \beta_d x^d$$
+                            </li>
+                            <li>Evaluar el modelo utilizando métricas de ajuste o comparando los errores residuales.</li>
+                        </ol>
+                        
+                        
+                        
+                        
+                        
+                        
+                    </article>
+                    
+                    
+                    
+                    
+                </section>
+                <section class="title-section">
+                    <h2>Ejemplo</h2>
+                </section>
+                
+                <section id="slider">
+                    <div class="slider-container">
+                        
+                        <img src="../../Images/Regresion/Ejemplo1.PNG" class="image" alt="Imagen 1" />
+                        <img src="../../Images/Regresion/Ejemplo2.PNG" class="image" alt="Imagen 2"
+                        style="display:none;" />
+                        <img src="../../Images/Regresion/Ejemplo3.PNG" class="image" alt="Imagen 3"
+                        style="display:none;" />
+                        <img src="../../Images/Regresion/Ejemplo4.PNG" class="image" alt="Imagen 4"
+                        style="display:none;" />
+                        <img src="../../Images/Regresion/Ejemplo5.PNG" class="image" alt="Imagen 5"
+                        style="display:none;" />
+
+                    
+                        
+                        
+                        <div class="caption-container">
+                            <p>Descripción de la imagen 1</p>
+                        </div>
+                        
+                    </div>
+                    <button id="leftArrow" onclick="previousImg()">❮</button>
+                    <button id="rightArrow" onclick="nextImg()">❯</button>
+                    
+                </section>
+
+
+        <nav class="navbar-centered">
+            <ul class="nav-links">
+                <li><a href="../P1/metodoGauss-Jordan.html">Método de Gauss y Gauss-Jordan</a></li>
+                <li><a href="./metodoJacobi.html">Método de Gauss-Seidel y Jacobi</a></li>
+
+                <li><a href="./metodoMontante.html">Método de Montante</a></li>
+                <li><a href="./metodoLagrange">Método de Interpolacion de Lagrange</a></li>
+
+            </ul>
+        </nav>
+
+        <footer>
+            <p>JESUS LEONARDO JIMENEZ GONZALEZ - 735817</p>
+        </footer>
+    </main>
+
+
+    <script src="../../Scripts/slider5.js"></script>
+</body>
+
+</html>

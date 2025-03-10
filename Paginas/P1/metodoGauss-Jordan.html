@@ -14,15 +14,15 @@
         <header>
         </header>
         <nav class="navbar">
-
-            <div class="sitio"> <b>Metodos Numericos</b></div>
+            <div class="sitio"><b>Métodos Numéricos</b></div>
             <ul class="nav-links">
                 <li><a href="../../index.html">Inicio</a></li>
-                <li><a href="./parcial1.html">Parcial 1</a></li>
-                <li><a href="#">Parcial 2</a></li>
+                <li><a href="../P1/parcial1.html">Parcial 1</a></li>
+                <li><a href="../P2/parcial2.html">Parcial 2</a></li>
                 <li><a href="#">Parcial 3</a></li>
             </ul>
         </nav>
+
 
         <section class="articles-section">
             <article class="half-width">
@@ -182,6 +182,31 @@
             </ul>
         </nav>
 
+        <div class="title-section">
+            <h2>Calculadora de Metodo de Gauss y Gauss-Jordan</h2>
+        </div>
+
+        <div class="text-section">
+
+            <label for="dimension" class="form-label">Ingrese Dimensión del Sistema de Ecuaciones (nxn):</label>
+            <select id="dimension" name="dimension" class="form-select" required>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+            </select>
+            <div>
+                <button class="form-button" onclick="createMatrixInputs()">Crear Matriz</button>
+                <button class="form-button" onclick="solveMatrix('gauss')">Resolver Matriz con Eliminacion de Gauss</button>
+                <button class="form-button" onclick="solveMatrix('gaussJordan')">Resolver Matriz con Gauss Jordan</button>
+            </div>
+        </div>
+       
+        
+
+        <div id="matrixInputs" class="table-container"></div>
+        <div id="matrixOutput"></div>
+
         <nav class="navbar-centered">
             <ul class="nav-links">
                 <li><a href="../P2/metodoJacobi.html">Método de Gauss-Seidel y Jacobi</a></li>
@@ -200,6 +225,7 @@
 
     <!-- Scripts -->
     <script src="../../Scripts/sliderNewt.js"></script>
+    <script src="../../Scripts/gauss-jordan.js"></script>
 </body>
 
 </html>

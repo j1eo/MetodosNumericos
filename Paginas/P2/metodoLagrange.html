@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Método de Regresion de Lagrange</title>
+    <link rel="stylesheet" href="../../Styles/index.css">
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+
+<body>
+    <main>
+        <header></header>
+        <nav class="navbar">
+            <div class="sitio"><b>Métodos Numéricos</b></div>
+            <ul class="nav-links">
+                <li><a href="../../index.html">Inicio</a></li>
+                <li><a href="../P1/parcial1.html">Parcial 1</a></li>
+                <li><a href="./parcial2.html">Parcial 2</a></li>
+                <li><a href="#">Parcial 3</a></li>
+            </ul>
+        </nav>
+
+
+        <section class="articles-section">
+            <article class="half-width">
+                <h2>Metodo de Interpolacion de Lagrange</h2>
+                <p>Es un método de Mnumerico utilizado para encontrar una funcion que pase exactamente por un conjunto
+                    de puntos dados. Se usa para estimar valores intermedios en un conjunto de datos discretos.
+
+                    El principio basico es construir una funcion \(f(x)\) que pase por los puntos \((x_0,y_0)\),
+                    \((x_1,y_1)\), \((x_2,y_2)\), ..., \((x_n,y_n)\) , de tal manera que para cada \(i\) se cumpla
+                    \(f(x_i)=y_i\)
+                    .
+
+                    Permite encontrar un polinomio de \(P(x)\) de grado \(n\) que pase por \(n+1\) puntos. Se bassa en
+                    la construccion de polinomios base \(L_i(x)\) que tienen la propiedad de ser 1 en \(x_i\) y 0 en el
+                    resto de puntos.
+                </p>
+
+            </article>
+        </section>
+
+        <section class="articles-section">
+            <article class="half-width">
+                <h2>Formula que lo define
+                </h2>
+                <p>
+
+                    $$P(x) = \sum_{i=0}^{n} y_i L_i(x)$$
+                </p>
+                <p>
+                    Donde los polinomios \(L_i(x)\) se calculan como:
+                    $$L_i(x) = \prod_{\substack{j=0 \\ j \neq i}}^{n} \frac{x - x_j}{x_i - x_j}$$
+                </p>
+
+
+
+
+            </article>
+            <article class="half-width">
+                <h2>Antecedentes y Relación con Otros Métodos</h2>
+                <p> El método de interpolación de Lagrange tiene sus raíces en el desarrollo del cálculo numérico y la
+                    aproximación de funciones. Fue propuesto por el matemático francés Joseph-Louis Lagrange en el siglo
+                    XVIII, específicamente en 1795, como parte de sus investigaciones en álgebra y análisis. El método
+                    fue diseñado para encontrar un polinomio único que pase por un conjunto dado de puntos en un plano
+                    cartesiano.
+                </p>
+            </article>
+        </section>
+
+
+        <section class="text-section">
+            <h2>Aplicaciones
+            </h2>
+            <p>La interpolación de Lagrange tiene aplicaciones en una amplia variedad de campos donde se requiere
+                aproximar funciones basándose en un conjunto limitado de datos. En ciencias de la computación, se
+                utiliza para diseñar algoritmos que permiten la reconstrucción de señales digitales y la compresión de
+                datos. En ingeniería, este método es clave para modelar sistemas físicos y obtener valores intermedios
+                entre mediciones experimentales.
+            </p>
+
+        </section>
+
+
+
+
+        <section class="title-section">
+            <h2>Ejemplo</h2>
+        </section>
+
+        <section class="articles-section">
+
+            <article class="half-width">
+                <h2>Algoritmo</h2>
+                <ol>
+                    <li>Sea un conjunto de puntos conocidos \((x_0, y_0), (x_1, y_1), \dots, (x_n, y_n)\) que queremos interpolar.</li>
+                    <li>Calcular los polinomios base  \(L_i(x)\)
+                    </li>
+                    <li>Multuplicar cada \(L_i(x)\) por su \(y_i\) correspondiente</li>
+                    <li>Sustituir los valores de \(y_i\) y los \(L_i(x)\) en la fórmula de \(P(x)\).</li>
+                    <li>Simplificar el polinomio \(P(x)\) si es necesario para obtener la forma explícita.</li>
+                    <li>Usar \(P(x)\) para evaluar el valor de la función interpolante en cualquier punto \(x\) deseado.</li>
+                </ol>
+                
+                
+
+            </article>
+
+
+            <section id="slider">
+                <div class="slider-container">
+
+                    <img src="../../Images/Lagrange/Ejemplo1.PNG" class="image" alt="Imagen 1" />
+                    <img src="../../Images/Lagrange/Ejemplo2.PNG" class="image" alt="Imagen 2"
+                        style="display:none;" />
+                    <img src="../../Images/Lagrange/Ejemplo3.PNG" class="image" alt="Imagen 3"
+                        style="display:none;" />
+                    <img src="../../Images/Lagrange/Ejemplo4.PNG" class="image" alt="Imagen 4"
+                        style="display:none;" />
+                    <img src="../../Images/Lagrange/Ejemplo5.PNG" class="image" alt="Imagen 5"
+                        style="display:none;" />
+
+
+                
+                
+
+
+                    <div class="caption-container">
+                        <p>Descripción de la imagen 1</p>
+                    </div>
+
+                </div>
+                <button id="leftArrow" onclick="previousImg()">❮</button>
+                <button id="rightArrow" onclick="nextImg()">❯</button>
+
+            </section>
+
+
+
+        </section>
+
+        
+        <nav class="navbar-centered">
+            <ul class="nav-links">
+                <li><a href="../P1/metodoGauss-Jordan.html">Método de Gauss y Gauss-Jordan</a></li>
+                <li><a href="./metodoJacobi.html">Método de Gauss-Seidel y Jacobi</a></li>
+
+                <li><a href="./metodoMontante.html">Método de Montante</a></li>
+                <li><a href="./metodosRegresion">Métodos de Regresion</a></li>
+
+            </ul>
+        </nav>
+
+        <footer>
+            <p>JESUS LEONARDO JIMENEZ GONZALEZ - 735817</p>
+        </footer>
+    </main>
+
+   
+    <script src="../../Scripts/slider5.js"></script>
+</body>
+
+</html>
