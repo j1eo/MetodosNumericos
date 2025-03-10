@@ -13,7 +13,8 @@
     font-size: 24px;
 }
 
-.navbar .nav-links {
+.navbar .nav-links { 
+    width: 100%;
     font-size: 1.2em;
     list-style: none;
     display: flex;
@@ -456,9 +457,13 @@ footer p {
         padding: 8px;
     }
     .matrix-input {
-        width: 4.5em;
-        margin: 0.3em;
-        
+        width: 3em; /* Reduce the width for mobile devices */
+        font-size: 1rem; /* Adjust font size */
+        padding: 0.3em; /* Reduce padding */
+        margin: 0.2em; /* Add small margin between inputs */
+    }
+    .matrix-row {
+        gap: 0.5em; /* Reduce spacing between inputs in each row */
     }
 }
 
