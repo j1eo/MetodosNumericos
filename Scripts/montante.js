@@ -136,7 +136,23 @@ function printMatrixLog(matrix, message) {
 function printSolution(solution) {
     const matrixOutputDiv = document.getElementById('matrixOutput');
     const solutionDiv = document.createElement('div');
-    solutionDiv.className = "text-section"; // Reuse the same class for styling
-    solutionDiv.innerHTML = `<h3>Solución:</h3><p>${solution.join(", ")}</p>`;
+    solutionDiv.className = "text-section"; // Reutiliza la clase para dar estilo
+
+    let formattedSolution = "<h3>Solución:</h3><p>";
+    for (let i = 0; i < solution.length; i++) {
+        // Formato en LaTeX
+        formattedSolution += `\\(X_{${i + 1}} = ${solution[i]}\\)`;
+        if (i < solution.length - 1) {
+            formattedSolution += ", "; // Coma entre las soluciones
+        }
+    }
+    formattedSolution += "</p>";
+
+    solutionDiv.innerHTML = formattedSolution;
     matrixOutputDiv.appendChild(solutionDiv);
+
+    // Actualizar MathJax para renderizar las expresiones LaTeX
+    MathJax.typesetPromise();
 }
+
+
