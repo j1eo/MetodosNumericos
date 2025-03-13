@@ -1,8 +1,7 @@
-
 /* Estilos para el navbar */
 .navbar {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-between; /* Deja el contenido a los extremos */
     align-items: center;
     background-color: var(--color-dark);
     padding: 1em;
@@ -14,13 +13,13 @@
 }
 
 .navbar .nav-links { 
-    width: 100%;
     font-size: 1.2em;
     list-style: none;
     display: flex;
     align-items: stretch; /* Asegura que todos los elementos se estiren a la misma altura */
     padding: 0;
     margin: 0;
+    margin-left: auto; /* Mueve todo el bloque de enlaces hacia la derecha */
 }
 
 .navbar .nav-links li {
