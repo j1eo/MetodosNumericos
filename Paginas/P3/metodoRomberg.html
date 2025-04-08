@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Método de Regresion de Lagrange</title>
+    <link rel="stylesheet" href="../../Styles/index.css">
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+
+<body>
+    <main>
+        <header></header>
+        <nav class="navbar">
+            <div class="sitio"><b>Métodos Numéricos</b></div>
+            <ul class="nav-links">
+                <li><a href="../../index.html">Inicio</a></li>
+                <li><a href="../P1/parcial1.html">Parcial 1</a></li>
+                <li><a href="../P2/parcial2.html">Parcial 2</a></li>
+                <li><a href="../P3/parcial3.html">Parcial 3</a></li>
+            </ul>
+        </nav>
+
+
+
+        <section class="articles-section">
+            <article class="half-width">
+                <h2>Método de Romberg</h2>
+                <p>El método de Romberg es una técnica avanzada de integración numérica que combina la regla del
+                    trapecio con la extrapolación de Richardson para acelerar la convergencia. Este método jerárquico
+                    construye una tabla triangular donde cada nivel mejora la aproximación de la integral mediante
+                    combinaciones inteligentes de estimaciones previas, logrando una precisión exponencialmente mayor
+                    con cada iteración.</p>
+
+                <p>Su principal ventaja es que puede alcanzar alta precisión con relativamente pocas evaluaciones de
+                    función, especialmente cuando se combina con técnicas de subdivisión adaptativa. Es particularmente
+                    efectivo para funciones suaves donde la regla del trapecio simple convergería lentamente.</p>
+            </article>
+        </section>
+
+        <section class="articles-section">
+            <article class="half-width">
+                <h2>Fórmula que lo define</h2>
+                <p>
+                    <strong>Construcción de la tabla:</strong>
+                    $$R_{i,1} = \text{Aproximación trapezoidal con } 2^{i-1} \text{ intervalos}$$
+
+                    <strong>Extrapolación recursiva:</strong>
+                    $$R_{i,j} = R_{i,j-1} + \frac{R_{i,j-1} - R_{i-1,j-1}}{4^{j-1} - 1}$$
+
+                    <strong>Fórmula final (cuadratura de orden alto):</strong>
+                    $$\text{Mejor aproximación} = R_{n,n}$$
+                </p>
+            </article>
+            <article class="half-width">
+                <h2>Antecedentes y Relación con Otros Métodos</h2>
+                <p>Desarrollado por Werner Romberg en 1955, este método sintetiza dos ideas fundamentales: la
+                    integración compuesta del trapecio (que proporciona estimaciones iniciales) y la extrapolación de
+                    Richardson (que acelera la convergencia). Se considera una evolución natural de los métodos de
+                    Newton-Cotes, superando en eficiencia a Simpson cuando se requiere alta precisión.</p>
+
+                <p>Romberg es particularmente útil como método de referencia para verificar resultados de otros
+                    algoritmos de integración, ya que su convergencia rápida y estructura tabular permiten estimar
+                    fácilmente el error residual.</p>
+            </article>
+        </section>
+
+        <section class="text-section">
+            <h2>Aplicaciones</h2>
+            <p>El método de Romberg es ampliamente utilizado en ingeniería y ciencias computacionales para calcular
+                integrales complejas con alta precisión, especialmente cuando se requiere un equilibrio entre exactitud
+                y eficiencia. Destaca en aplicaciones como el análisis de elementos finitos (cálculo de matrices de
+                rigidez), física computacional (integrales de funciones especiales), procesamiento de señales (análisis
+                espectral) y finanzas cuantitativas (valoración de opciones exóticas), donde su convergencia acelerada y
+                control automático del error lo hacen superior a métodos básicos como Simpson o el trapecio. También se
+                emplea como referencia para validar otros algoritmos numéricos y en sistemas embebidos que requieren
+                precisión con recursos limitados.</p>
+        </section>
+
+        <section class="articles-section">
+            <article class="half-width">
+                <h2>Algoritmo de Romberg (Formulación Matemática)</h2>
+                
+                <div>
+                    <p><strong>Entrada:</strong> \( f(x),\ a,\ b,\ \epsilon \) (tolerancia), \( n_{max} \) (niveles máx)</p>
+                    
+                    <ol style="list-style-type:none;">
+                        <li>
+                            1. <strong>Inicialización trapezoidal:</strong>
+                            \[ R_{1,1} = \frac{b-a}{2}[f(a) + f(b)] \]
+                        </li>
+                        
+                        <li>
+                            2. <strong>Refinamiento recursivo:</strong>
+                            \[
+                            \begin{aligned}
+                            &\text{Para } i = 2,3,...,n_{max}: \\
+                            &\quad R_{i,1} = \frac{1}{2}\left(R_{i-1,1} + h_{i-1}\sum_{k=1}^{2^{i-2}}f\left(a + (2k-1)h_i\right)\right) \\
+                            &\quad \text{con } h_i = \frac{b-a}{2^{i-1}} \\
+                            &\quad \text{Para } j = 2,...,i: \\
+                            &\quad\quad R_{i,j} = R_{i,j-1} + \frac{R_{i,j-1} - R_{i-1,j-1}}{4^{j-1}-1} \\
+                            &\quad \text{Si } |R_{i,i} - R_{i-1,i-1}| < \epsilon \text{ terminar}
+                            \end{aligned}
+                            \]
+                        </li>
+                        
+                        <li>
+                            3. <strong>Resultado:</strong>
+                            \[ \text{Integral} \approx R_{k,k} \quad \text{(mejor aproximación)} \]
+                        </li>
+                    </ol>
+                </div>
+        
+            </article>
+            <article class="half-width">
+                <h2>Notación Clave:</h2>
+                <ul>
+                    <li>\( R_{i,j} \): Aproximación de nivel \( i \), orden \( j \)</li>
+                    <li>\( h_i \): Tamaño de paso en nivel \( i \)</li>
+                    <li>\( k \): Nivel final alcanzado (\( k \leq n_{max} \))</li>
+                </ul>
+            </article>
+        </section>
+
+
+
+        <section class="title-section">
+            <h2>Ejemplo</h2>
+        </section>
+
+        <section class="articles-section">
+
+            <article class="half-width">
+                <h2>Algoritmo de Romberg</h2>
+                <ol>
+                    <li>Definir la funcion \({f(x)}\) y los limites \([a,b]\) </li>
+                    <li>Calcular regla del trapecio para distintos valores de h</li>
+                    <li>Llenar la primera columna de la tabla con las aproximaciones obtenidas</li>
+                    <li>Aplicar extrapolacion de Richardson</li>
+                    <li>Iterar hasta converger a un valor</li>
+                </ol>
+            
+                <h2>Ejemplo de Tabla de Romberg (n=3):</h2>
+                <table border="1">
+                    <tr>
+                        <th>Nivel (i)</th>
+                        <th>Orden 1 (Trapecio)</th>
+                        <th>Orden 2</th>
+                        <th>Orden 3</th>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>\( R_{1,1} \)</td>
+                        <td>-</td>
+                        <td>-</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>\( R_{2,1} \)</td>
+                        <td>\( R_{2,2} \)</td>
+                        <td>-</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>\( R_{3,1} \)</td>
+                        <td>\( R_{3,2} \)</td>
+                        <td>\( R_{3,3} \)</td>
+                    </tr>
+                </table>
+                
+                <div >
+                    <p><strong>Nota:</strong> Cada \( R_{i,j} \) representa:</p>
+                    <ul>
+                        <li><em>Primera columna (j=1):</em> Aproximaciones trapezoidales compuestas</li>
+                        <li><em>Columnas j>1:</em> Mejoras por extrapolación de Richardson</li>
+                    </ul>
+                </div>
+            </article>
+
+
+
+        </section>
+        <section id="slider">
+            <div class="slider-container">
+
+                <img src="../../Images/Romberg/Ejemplo1.PNG" class="image" alt="Imagen 1" />
+                <img src="../../Images/Romberg/Ejemplo2.PNG" class="image" alt="Imagen 2" style="display:none;" />
+                <img src="../../Images/Romberg/Ejemplo3.PNG" class="image" alt="Imagen 3" style="display:none;" />
+
+
+
+                <div class="caption-container">
+                    <p>Descripción de la imagen 1</p>
+                </div>
+
+            </div>
+            <button id="leftArrow" onclick="previousImg()">❮</button>
+            <button id="rightArrow" onclick="nextImg()">❯</button>
+
+        </section>
+
+
+        <nav class="navbar-centered">
+            <ul class="nav-links">
+                <li><a href="./metodoDifdiv.html">Método de Diferencias divididas</a></li>
+                <li><a href="./metodoTrap.html">Método de Trapecio</a></li>
+                <li><a href="./metodoSimpson.html">Método de Simpson 1/3 y 3/8</a></li>
+                <li><a href="./metodoRomberg">Método de Romberg y Richardson
+                    </a></li>
+                <li><a href="./metodoEuler"> Método de Euler y Euler modificado</a></li>
+                <li><a href="./metodoRungeKutta">Método de Runge-Kutta</a></li>
+            </ul>
+        </nav>
+
+        <footer>
+            <p>JESUS LEONARDO JIMENEZ GONZALEZ - 735817</p>
+        </footer>
+    </main>
+
+
+    <script src="../../Scripts/sliderNewt.js"></script>
+</body>
+
+</html>

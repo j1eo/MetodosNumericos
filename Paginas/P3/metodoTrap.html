@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Método de Regresion de Lagrange</title>
+    <link rel="stylesheet" href="../../Styles/index.css">
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+
+<body>
+    <main>
+        <header></header>
+        <nav class="navbar">
+            <div class="sitio"><b>Métodos Numéricos</b></div>
+            <ul class="nav-links">
+                <li><a href="../../index.html">Inicio</a></li>
+                <li><a href="../P1/parcial1.html">Parcial 1</a></li>
+                <li><a href="../P2/parcial2.html">Parcial 2</a></li>
+                <li><a href="../P3/parcial3.html">Parcial 3</a></li>
+            </ul>
+        </nav>
+
+
+
+        <section class="articles-section">
+            <article class="half-width">
+                <h2>Método del Trapecio</h2>
+                <p>Es un método numérico para aproximar integrales definidas dividiendo el área bajo la curva en
+                    trapecios.
+                    Pertenece a las fórmulas de Newton-Cotes y mejora la precisión respecto a métodos básicos como la
+                    suma de Riemann
+                    al considerar la pendiente entre puntos consecutivos.</p>
+
+                <p>El método consiste en:
+                <ul>
+                    <li>Dividir el intervalo \([a, b]\) en \(n\) subintervalos de igual ancho \(h\)</li>
+                    <li>Aproximar el área bajo la curva en cada subintervalo como un trapecio</li>
+                    <li>Sumar las áreas de todos los trapecios para obtener la aproximación integral</li>
+                </ul>
+                </p>
+            </article>
+        </section>
+
+        <section class="articles-section">
+            <article class="half-width">
+                <h2>Fórmula que lo define</h2>
+                <p>
+                    <strong>Regla simple del trapecio:</strong>
+                    $$\int_{a}^{b} f(x) dx \approx \frac{b-a}{2} [f(a) + f(b)]$$
+
+                    <strong>Regla compuesta (n subintervalos):</strong>
+                    $$\int_{a}^{b} f(x) dx \approx \frac{h}{2} \left[ f(x_0) + 2\sum_{i=1}^{n-1} f(x_i) + f(x_n)
+                    \right]$$
+                    donde:
+                    $$h = \frac{b-a}{n}, \quad x_i = a + ih$$
+                </p>
+            </article>
+            <article class="half-width">
+                <h2>Antecedentes y Relación con Otros Métodos</h2>
+                <p>Desarrollado como parte de las fórmulas de Newton-Cotes, la regla del trapecio es el caso más simple
+                    de cuadratura cerrada después del método rectangular. Es equivalente a:</p>
+                <ul>
+                    <li>Interpolar con un polinomio de grado 1</li>
+                    <li>Integrar exactamente polinomios lineales</li>
+                    <li>El primer miembro de la familia Newton-Cotes (siguiente es Simpson 1/3)</li>
+                </ul>
+            </article>
+        </section>
+
+        <section class="text-section">
+            <h2>Aplicaciones</h2>
+            <p>La regla del trapecio es ampliamente utilizada en ingeniería, física y ciencias aplicadas para integrar
+                datos discretos en áreas como topografía (cálculo de áreas irregulares), procesamiento de señales
+                (análisis espectral), meteorología (cálculo de precipitaciones acumuladas) y economía (valor presente de
+                flujos irregulares). Aunque es uno de los métodos más básicos de integración numérica, sigue siendo muy
+                empleado por su simplicidad y eficacia con funciones suaves, especialmente en aplicaciones donde los
+                datos son escasos o el costo computacional debe ser mínimo. Sin embargo, para mayor precisión con
+                funciones complejas o grandes conjuntos de datos, frecuentemente se prefieren métodos como Simpson (para
+                mayor exactitud con polinomios cúbicos) o cuadratura gaussiana (para alta precisión con menos puntos de
+                evaluación), siendo el trapecio ideal para cálculos rápidos o cuando solo se dispone de mediciones
+                puntuales equidistantes.</p>
+        </section>
+        </section>
+
+
+
+
+        <section class="title-section">
+            <h2>Ejemplo</h2>
+        </section>
+
+        <section class="articles-section">
+
+            <article class="half-width">
+                <h2>Algoritmo: Regla del Trapecio</h2>
+                <ol>
+                    <li><strong>Entrada:</strong> Función <em>f(x)</em>, límites de integración <em>a</em> y <em>b</em>, número de subintervalos <em>n</em></li>
+                    <li><strong>Calcular:</strong> Ancho de subintervalo \( h = \frac{b-a}{n} \)</li>
+                    <li><strong>Inicializar:</strong> Suma = 0, x₀ = a</li>
+                    <li><strong>Evaluar:</strong> f(x₀) y f(xₙ) donde xₙ = b</li>
+                    <li><strong>Para</strong> i = 1 hasta n-1:
+                        <ul style="margin-left: 20px; list-style-type: none;">
+                            <li>• Calcular xᵢ = a + i·h</li>
+                            <li>• Evaluar f(xᵢ)</li>
+                            <li>• Sumar al acumulador: Suma = Suma + 2·f(xᵢ)</li>
+                        </ul>
+                    </li>
+                    <li><strong>Aplicar fórmula final:</strong> 
+                        \[ \text{Integral} \approx \frac{h}{2} \left[ f(a) + \text{Suma} + f(b) \right] \]
+                    </li>
+                    <li><strong>Salida:</strong> Valor aproximado de la integral</li>
+                </ol>
+            
+               
+            </article>
+
+
+
+
+
+            <section id="slider">
+                <div class="slider-container">
+    
+                    <img src="../../Images/Trapecio/Ejemplo1.PNG" class="image" alt="Imagen 1" />
+                    
+    
+    
+    
+                    <div class="caption-container">
+                        <p>Descripción de la imagen 1</p>
+                    </div>
+    
+                </div>
+               
+    
+            </section>
+        </section>
+
+
+        <nav class="navbar-centered">
+            <ul class="nav-links">
+                <li><a href="./metodoDifdiv.html">Método de Diferencias divididas</a></li>
+                <li><a href="./metodoTrap.html">Método de Trapecio</a></li>
+                <li><a href="./metodoSimpson.html">Método de Simpson 1/3 y 3/8</a></li>
+                <li><a href="./metodoRomberg">Método de Romberg y Richardson
+                    </a></li>
+                <li><a href="./metodoEuler"> Método de Euler y Euler modificado</a></li>
+                <li><a href="./metodoRungeKutta">Método de Runge-Kutta</a></li>
+            </ul>
+        </nav>
+
+        <footer>
+            <p>JESUS LEONARDO JIMENEZ GONZALEZ - 735817</p>
+        </footer>
+    </main>
+
+
+    
+</body>
+
+</html>

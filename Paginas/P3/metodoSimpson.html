@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Método de Regresion de Lagrange</title>
+    <link rel="stylesheet" href="../../Styles/index.css">
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+
+<body>
+    <main>
+        <header></header>
+        <nav class="navbar">
+            <div class="sitio"><b>Métodos Numéricos</b></div>
+            <ul class="nav-links">
+                <li><a href="../../index.html">Inicio</a></li>
+                <li><a href="../P1/parcial1.html">Parcial 1</a></li>
+                <li><a href="../P2/parcial2.html">Parcial 2</a></li>
+                <li><a href="../P3/parcial3.html">Parcial 3</a></li>
+            </ul>
+        </nav>
+
+        <section class="articles-section">
+            <article class="half-width">
+                <h2>Método de Simpson 1/3</h2>
+                <p>El método de Simpson 1/3 es una técnica de integración numérica que aproxima el área bajo la curva mediante la interpolación con polinomios cuadráticos. Requiere un número par de subintervalos y proporciona mayor precisión que la regla del trapecio al considerar la curvatura de la función. Es especialmente efectivo para integrar funciones suaves que pueden ser bien aproximadas por parábolas en intervalos pequeños.</p>
+            </article>
+            <article class="half-width">
+                <h2>Método de Simpson 3/8</h2>
+                <p>El método de Simpson 3/8 es una extensión que utiliza polinomios cúbicos para la aproximación, requiriendo múltiplos de tres subintervalos. Ofrece mayor precisión que la regla 1/3 para ciertos tipos de funciones, particularmente aquellas con comportamiento cúbico. Ambos métodos pertenecen a la familia de fórmulas cerradas de Newton-Cotes para integración numérica.</p>
+            </article>
+        </section>
+        
+        <section class="articles-section">
+            <article class="half-width">
+                <h2>Fórmulas que los definen</h2>
+                <p>
+                    <strong>Simpson 1/3 (compuesto):</strong>
+                    $$\int_{a}^{b} f(x)dx \approx \frac{h}{3} \left[ f(x_0) + 4\sum_{i=1,3,5...}^{n-1}f(x_i) + 2\sum_{j=2,4,6...}^{n-2}f(x_j) + f(x_n) \right]$$
+                    donde \( h = \frac{b-a}{n} \) (n debe ser par)
+                </p>
+                <p>
+                    <strong>Simpson 3/8:</strong>
+                    $$\int_{a}^{b} f(x)dx \approx \frac{3h}{8} \left[ f(x_0) + 3\sum_{i=1,4,7...}^{n-2}(f(x_i)+f(x_{i+1})) + 2\sum_{j=3,6,9...}^{n-3}f(x_j) + f(x_n) \right]$$
+                    donde \( h = \frac{b-a}{n} \) (n debe ser múltiplo de 3)
+                </p>
+            </article>
+            <article class="half-width">
+                <h2>Antecedentes y Relación con Otros Métodos</h2>
+                <p>Desarrollados como parte de las fórmulas de Newton-Cotes, estos métodos representan la evolución natural de las técnicas de integración numérica. Mientras que la regla del trapecio usa aproximaciones lineales, Simpson 1/3 emplea cuadráticas (exacta para polinomios hasta grado 3) y Simpson 3/8 usa cúbicas (exacta hasta grado 3). En la práctica, Simpson 1/3 es más popular por su mejor relación precisión-complejidad, reservándose 3/8 para casos especiales donde el número de intervalos es múltiplo de 3.</p>
+            </article>
+        </section>
+        
+        <section class="text-section">
+            <h2>Aplicaciones</h2>
+            <p>Estos métodos son ampliamente utilizados en ingeniería para cálculo de áreas complejas, análisis estructural (cálculo de momentos de inercia), hidrodinámica (cálculo de flujos), y en física para integrar funciones de onda. Simpson 1/3 es particularmente popular en software científico por su equilibrio entre precisión y eficiencia computacional, mientras que 3/8 se emplea cuando se requiere mayor exactitud en problemas específicos o cuando el número natural de intervalos es múltiplo de tres.</p>
+        </section>
+        
+        <section class="articles-section">
+            <article class="half-width">
+                <h2>Algoritmo Simpson 1/3</h2>
+                <ol>
+                    <li>Verificar que el número de intervalos <em>n</em> sea par</li>
+                    <li>Calcular \( h = (b-a)/n \)</li>
+                    <li>Inicializar suma_impar = 0, suma_par = 0</li>
+                    <li>Para i = 1 hasta n-1:
+                        <ul style="margin-left: 20px; list-style-type: none;">
+                            <li>• Si i es impar: suma_impar += f(a + i*h)</li>
+                            <li>• Si i es par: suma_par += f(a + i*h)</li>
+                        </ul>
+                    </li>
+                    <li>Calcular integral = (h/3)*(f(a) + 4*suma_impar + 2*suma_par + f(b))</li>
+                </ol>
+            </article>
+            <article class="half-width">
+                <h2>Algoritmo Simpson 3/8</h2>
+                <ol>
+                    <li>Verificar que <em>n</em> sea múltiplo de 3</li>
+                    <li>Calcular \( h = (b-a)/n \)</li>
+                    <li>Inicializar suma1 = 0, suma2 = 0</li>
+                    <li>Para i = 1 hasta n-1:
+                        <ul style="margin-left: 20px; list-style-type: none;">
+                            <li>• Si i no es múltiplo de 3: suma1 += f(a + i*h)</li>
+                            <li>• Si i es múltiplo de 3: suma2 += f(a + i*h)</li>
+                        </ul>
+                    </li>
+                    <li>Calcular integral = (3h/8)*(f(a) + 3*suma1 + 2*suma2 + f(b))</li>
+                </ol>
+            </article>
+        </section>
+
+
+
+
+        <section class="title-section">
+            <h2>Ejemplo</h2>
+        </section>
+
+        <section class="articles-section">
+
+            <section id="slider">
+                <div class="slider-container">
+    
+                    <img src="../../Images/Simpson/Ejemplo1.PNG" class="image" alt="Imagen 1" />
+                    
+    
+    
+    
+                    <div class="caption-container">
+                        <p>Metodo Simpson 1/3</p>
+                    </div>
+    
+                </div>
+               
+    
+            </section>
+
+
+
+        </section>
+
+
+        <nav class="navbar-centered">
+            <ul class="nav-links">
+                <li><a href="./metodoDifdiv.html">Método de Diferencias divididas</a></li>
+                <li><a href="./metodoTrap.html">Método de Trapecio</a></li>
+                <li><a href="./metodoSimpson.html">Método de Simpson 1/3 y 3/8</a></li>
+                <li><a href="./metodoRomberg">Método de Romberg y Richardson
+                </a></li>
+                <li><a href="./metodoEuler"> Método de Euler y Euler modificado</a></li>
+                <li><a href="./metodoRungeKutta">Método de Runge-Kutta</a></li>
+            </ul>
+        </nav>
+
+
+        <footer>
+            <p>JESUS LEONARDO JIMENEZ GONZALEZ - 735817</p>
+        </footer>
+    </main>
+
+   
+
+</body>
+
+</html>

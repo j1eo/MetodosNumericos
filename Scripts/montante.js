@@ -91,7 +91,7 @@ function montante(matrix) {
 
     let solution = [];
     for (let i = 0; i < n; i++) {
-        solution.push(Number((matrix[i][n] / matrix[i][i]).toFixed(4)));
+        solution.push(Number((matrix[i][n] / matrix[i][i]).toFixed(/4)));
     }
 
     return solution;

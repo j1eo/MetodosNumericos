@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Método de Regresion de Lagrange</title>
+    <link rel="stylesheet" href="../../Styles/index.css">
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+
+<body>
+    <main>
+        <header></header>
+        <nav class="navbar">
+            <div class="sitio"><b>Métodos Numéricos</b></div>
+            <ul class="nav-links">
+                <li><a href="../../index.html">Inicio</a></li>
+                <li><a href="../P1/parcial1.html">Parcial 1</a></li>
+                <li><a href="../P2/parcial2.html">Parcial 2</a></li>
+                <li><a href="../P3/parcial3.html">Parcial 3</a></li>
+            </ul>
+        </nav>
+
+
+        <section class="articles-section">
+            <article class="half-width">
+                <h2>Método de Runge-Kutta (Orden 4)</h2>
+                <p>El método de Runge-Kutta de cuarto orden (RK4) es uno de los algoritmos más utilizados para resolver ecuaciones diferenciales ordinarias (EDOs) numéricamente. Este método de un solo paso proporciona un excelente equilibrio entre precisión y eficiencia computacional, logrando una aproximación de orden O(h⁴) sin requerir el cálculo de derivadas de orden superior.</p>
+        
+                <p>RK4 se basa en un promedio ponderado de cuatro estimaciones de pendiente dentro de cada intervalo, combinando las ventajas de los métodos de serie de Taylor con la simplicidad de los métodos de paso único. Es especialmente efectivo para problemas con soluciones suaves y se ha convertido en estándar para muchos problemas científicos e ingenieriles.</p>
+            </article>
+        </section>
+        
+        <section class="articles-section">
+            <article class="half-width">
+                <h2>Fórmula que lo define</h2>
+                <p>
+                    <strong>Formulación clásica RK4:</strong>
+                    $$\begin{aligned}
+                    y_{n+1} &= y_n + \frac{1}{6}(k_1 + 2k_2 + 2k_3 + k_4) \\
+                    k_1 &= h \cdot f(x_n, y_n) \\
+                    k_2 &= h \cdot f(x_n + \frac{h}{2}, y_n + \frac{k_1}{2}) \\
+                    k_3 &= h \cdot f(x_n + \frac{h}{2}, y_n + \frac{k_2}{2}) \\
+                    k_4 &= h \cdot f(x_n + h, y_n + k_3)
+                    \end{aligned}$$
+                    Donde h es el tamaño de paso y f(x,y) define la EDO dy/dx = f(x,y)
+                </p>
+            </article>
+            <article class="half-width">
+                <h2>Antecedentes y Relación con Otros Métodos</h2>
+                <p>Desarrollado por los matemáticos alemanes Carl Runge y Martin Kutta alrededor de 1900, RK4 representa la culminación de los métodos de un solo paso. Supera en precisión a Euler y Euler Modificado, mientras evita la complejidad de los métodos multipaso como Adams-Bashforth. Pertenece a una familia de métodos donde RK4 es el más popular por su óptimo balance entre precisión y costo computacional.</p>
+        
+                <p>RK4 es equivalente a un método de Taylor de cuarto orden pero sin requerir el cálculo de derivadas superiores, lo que lo hace práctico para implementaciones computacionales. Para problemas que requieren mayor precisión, existen variantes como Runge-Kutta-Fehlberg con control adaptativo del paso.</p>
+            </article>
+        </section>
+        
+        <section class="text-section">
+            <h2>Aplicaciones</h2>
+            <p>El método RK4 es ampliamente utilizado en dinámica de fluidos computacional, mecánica celeste (simulación de órbitas), ingeniería eléctrica (análisis de circuitos no lineales), biología matemática (modelado de poblaciones) y gráficos por computadora (animación física). Su precisión y estabilidad lo hacen ideal para sistemas dinámicos complejos donde métodos más simples como Euler serían insuficientes, pero donde la implementación de métodos más complejos resultaría prohibitiva computacionalmente.</p>
+        </section>
+       
+    
+          
+
+
+
+        <section class="title-section">
+            <h2>Ejemplo</h2>
+        </section>
+
+        <section class="articles-section">
+
+            <article class="half-width">
+                <h2>Algoritmo RK4 (Formulación Matemática)</h2>
+                
+                <div>
+                    <p><strong>Entrada:</strong> \( f(x,y),\ x_0,\ y_0,\ h,\ x_{final} \)</p>
+                    
+                    <ol style="list-style-type:none;">
+                        <li>
+                            1. <strong>Inicializar:</strong> \( x = x_0 \), \( y = y_0 \)
+                        </li>
+                        
+                        <li>
+                            2. <strong>Mientras</strong> \( x < x_{final} \):
+                            \[
+                            \begin{aligned}
+                            &\quad k_1 = h \cdot f(x, y) \\
+                            &\quad k_2 = h \cdot f(x + \frac{h}{2}, y + \frac{k_1}{2}) \\
+                            &\quad k_3 = h \cdot f(x + \frac{h}{2}, y + \frac{k_2}{2}) \\
+                            &\quad k_4 = h \cdot f(x + h, y + k_3) \\
+                            &\quad y = y + \frac{1}{6}(k_1 + 2k_2 + 2k_3 + k_4) \\
+                            &\quad x = x + h
+                            \end{aligned}
+                            \]
+                        </li>
+                        
+                        <li>
+                            3. <strong>Resultado:</strong> \( y \) (solución aproximada en \( x_{final} \))
+                        </li>
+                    </ol>
+                </div>
+        
+            </article>
+            <article class="half-width">
+                <h2>Notación Clave y Ejemplo</h2>
+                <ul>
+                    <li>\( k_1 \): Pendiente al inicio del intervalo</li>
+                    <li>\( k_2 \): Pendiente en el punto medio usando \( k_1 \)</li>
+                    <li>\( k_3 \): Pendiente en el punto medio usando \( k_2 \)</li>
+                    <li>\( k_4 \): Pendiente al final del intervalo usando \( k_3 \)</li>
+                </ul>
+               
+              
+            </article>
+        </section>
+
+
+
+        </section>
+        <section id="slider">
+            <div class="slider-container">
+
+                <img src="../../Images/RungeKutta/Ejemplo1.PNG" class="image" alt="Imagen 1" />
+                <img src="../../Images/RungeKutta/Ejemplo2.PNG" class="image" alt="Imagen 2" style="display:none;" />
+                <img src="../../Images/RungeKutta/Ejemplo3.PNG" class="image" alt="Imagen 3" style="display:none;" />
+
+
+
+                <div class="caption-container">
+                    <p>Descripción de la imagen 1</p>
+                </div>
+
+            </div>
+            <button id="leftArrow" onclick="previousImg()">❮</button>
+            <button id="rightArrow" onclick="nextImg()">❯</button>
+
+        </section>
+
+
+        <nav class="navbar-centered">
+            <ul class="nav-links">
+                <li><a href="./metodoDifdiv.html">Método de Diferencias divididas</a></li>
+                <li><a href="./metodoTrap.html">Método de Trapecio</a></li>
+                <li><a href="./metodoSimpson.html">Método de Simpson 1/3 y 3/8</a></li>
+                <li><a href="./metodoRomberg">Método de Romberg y Richardson
+                    </a></li>
+                <li><a href="./metodoEuler"> Método de Euler y Euler modificado</a></li>
+                <li><a href="./metodoRungeKutta">Método de Runge-Kutta</a></li>
+            </ul>
+        </nav>
+
+        <footer>
+            <p>JESUS LEONARDO JIMENEZ GONZALEZ - 735817</p>
+        </footer>
+    </main>
+
+
+    <script src="../../Scripts/sliderNewt.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Método de Regresion de Lagrange</title>
+    <link rel="stylesheet" href="../../Styles/index.css">
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+
+<body>
+    <main>
+        <header></header>
+        <nav class="navbar">
+            <div class="sitio"><b>Métodos Numéricos</b></div>
+            <ul class="nav-links">
+                <li><a href="../../index.html">Inicio</a></li>
+                <li><a href="../P1/parcial1.html">Parcial 1</a></li>
+                <li><a href="../P2/parcial2.html">Parcial 2</a></li>
+                <li><a href="../P3/parcial3.html">Parcial 3</a></li>
+            </ul>
+        </nav>
+
+        <section class="articles-section">
+            <article class="half-width">
+                <h2>Método de Euler</h2>
+                <p>El método de Euler es el procedimiento más básico para resolver numéricamente ecuaciones diferenciales ordinarias (EDOs) de primer orden. Es un método explícito de un solo paso que aproxima la solución mediante lineas tangentes sucesivas, proporcionando una solución discreta punto a punto. Aunque su precisión es limitada, su simplicidad lo hace ideal para introducción a métodos numéricos y problemas donde la rapidez es más importante que la exactitud.</p>
+            </article>
+            <article class="half-width">
+                <h2>Método de Euler Modificado</h2>
+                <p>El método de Euler Modificado (o Euler Mejorado) es una versión refinada que utiliza un promedio de pendientes para cada paso, logrando mayor precisión que el Euler estándar. Este método predictor-corrector pertenece a la familia de Runge-Kutta de segundo orden, ofreciendo mejor estabilidad y exactitud con solo un modesto incremento en complejidad computacional comparado con el método básico de Euler.</p>
+            </article>
+        </section>
+        
+        <section class="articles-section">
+            <article class="half-width">
+                <h2>Fórmulas que los definen</h2>
+                <p>
+                    <strong>Euler estándar:</strong>
+                    $$y_{n+1} = y_n + h \cdot f(x_n, y_n)$$
+                    Donde h es el tamaño de paso y f(x,y) define la EDO dy/dx = f(x,y)
+                </p>
+                <p>
+                    <strong>Euler Modificado:</strong>
+                    $$\begin{aligned}
+                    & \text{Predictor: } y^* = y_n + h \cdot f(x_n, y_n) \\
+                    & \text{Corrector: } y_{n+1} = y_n + \frac{h}{2} \left[ f(x_n, y_n) + f(x_{n+1}, y^*) \right]
+                    \end{aligned}$$
+                </p>
+            </article>
+            <article class="half-width">
+                <h2>Antecedentes y Relación con Otros Métodos</h2>
+                <p>El método de Euler, desarrollado en el siglo XVIII, es el punto de partida de todos los métodos numéricos para EDOs. El Euler Modificado surge como primera mejora significativa, introduciendo el concepto de promediado de pendientes que luego se extendería en los métodos de Runge-Kutta. Mientras Euler tiene error O(h), el modificado alcanza O(h²), situándose entre el Euler básico y Runge-Kutta de cuarto orden en la jerarquía de métodos de solución numérica.</p>
+            </article>
+        </section>
+        
+        <section class="text-section">
+            <h2>Aplicaciones</h2>
+            <p>El método de Euler se emplea en modelado rápido de sistemas dinámicos simples, simulaciones en tiempo real donde prima la velocidad sobre precisión, y como componente educativo para introducir conceptos de solución numérica de EDOs. El Euler Modificado encuentra uso en dinámica de fluidos computacional básica, circuitos electrónicos simples, y modelos epidemiológicos donde se requiere mejor precisión que el Euler estándar sin llegar a la complejidad de Runge-Kutta de cuarto orden.</p>
+        </section>
+        
+        <section class="articles-section">
+            <article class="half-width">
+                <h2>Algoritmo de Euler</h2>
+                <ol>
+                    <li>Definir EDO: dy/dx = f(x,y), condición inicial y(x₀) = y₀</li>
+                    <li>Especificar intervalo [x₀, xₙ] y tamaño de paso h</li>
+                    <li>Para n = 0 hasta N-1:
+                        <ul style="margin-left: 20px; list-style-type: none;">
+                            <li>• Calcular yₙ₊₁ = yₙ + h·f(xₙ, yₙ)</li>
+                            <li>• Actualizar xₙ₊₁ = xₙ + h</li>
+                        </ul>
+                    </li>
+                    <li>Devolver conjunto de puntos {(xₙ, yₙ)}</li>
+                </ol>
+            </article>
+            <article class="half-width">
+                <h2>Algoritmo Euler Modificado</h2>
+                <ol>
+                    <li>Definir EDO: dy/dx = f(x,y), condición inicial y(x₀) = y₀</li>
+                    <li>Especificar intervalo [x₀, xₙ] y tamaño de paso h</li>
+                    <li>Para n = 0 hasta N-1:
+                        <ul style="margin-left: 20px; list-style-type: none;">
+                            <li>• <strong>Predictor:</strong> y* = yₙ + h·f(xₙ, yₙ)</li>
+                            <li>• <strong>Corrector:</strong> yₙ₊₁ = yₙ + h/2·[f(xₙ, yₙ) + f(xₙ₊₁, y*)]</li>
+                            <li>• <strong>Actualizar</strong> xₙ₊₁ = xₙ + h</li>
+                        </ul>
+                    </li>
+                    <li>Devolver conjunto de puntos {(xₙ, yₙ)}</li>
+                </ol>
+            </article>
+        </section>
+        
+
+
+
+
+        <section class="title-section">
+            <h2>Ejemplo</h2>
+        </section>
+
+        <section class="articles-section">
+
+            <section id="slider">
+                <div class="slider-container">
+    
+                    <img src="../../Images/Euler/Ejemplo1.PNG" class="image" alt="Imagen 1" />
+                    <img src="../../Images/Euler/Ejemplo2.PNG" class="image" alt="Imagen 2" style="display:none;" />
+                    <img src="../../Images/Euler/Ejemplo3.PNG" class="image" alt="Imagen 3" style="display:none;" />
+    
+    
+    
+                    <div class="caption-container">
+                        <p>Descripción de la imagen 1</p>
+                    </div>
+    
+                </div>
+                <button id="leftArrow" onclick="previousImg()">❮</button>
+                <button id="rightArrow" onclick="nextImg()">❯</button>
+    
+            </section>
+
+
+
+        </section>
+
+
+        <nav class="navbar-centered">
+            <ul class="nav-links">
+                <li><a href="./metodoDifdiv.html">Método de Diferencias divididas</a></li>
+                <li><a href="./metodoTrap.html">Método de Trapecio</a></li>
+                <li><a href="./metodoSimpson.html">Método de Simpson 1/3 y 3/8</a></li>
+                <li><a href="./metodoRomberg">Método de Romberg y Richardson
+                </a></li>
+                <li><a href="./metodoEuler"> Método de Euler y Euler modificado</a></li>
+                <li><a href="./metodoRungeKutta">Método de Runge-Kutta</a></li>
+            </ul>
+        </nav>
+
+
+        <footer>
+            <p>JESUS LEONARDO JIMENEZ GONZALEZ - 735817</p>
+        </footer>
+    </main>
+
+    <script src="../../Scripts/sliderNewt.js"></script>
+
+</body>
+
+</html>

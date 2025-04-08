@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Método de Regresion de Lagrange</title>
+    <link rel="stylesheet" href="../../Styles/index.css">
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+
+<body>
+    <main>
+        <header></header>
+        <nav class="navbar">
+            <div class="sitio"><b>Métodos Numéricos</b></div>
+            <ul class="nav-links">
+                <li><a href="../../index.html">Inicio</a></li>
+                <li><a href="../P1/parcial1.html">Parcial 1</a></li>
+                <li><a href="../P2/parcial2.html">Parcial 2</a></li>
+                <li><a href="../P3/parcial3.html">Parcial 3</a></li>
+            </ul>
+        </nav>
+
+
+
+        <section class="articles-section">
+            <article class="half-width">
+                <h2>Método de Diferencias Divididas</h2>
+                <p>Es un método numérico utilizado para encontrar un polinomio interpolante que pase exactamente por un conjunto
+                    de puntos dados. A diferencia de otros métodos, construye el polinomio de forma recursiva utilizando
+                    diferencias divididas, lo que lo hace más eficiente computacionalmente.
+        
+                    El principio básico es construir una tabla de diferencias divididas a partir de los puntos \((x_0,y_0)\),
+                    \((x_1,y_1)\), \((x_2,y_2)\), ..., \((x_n,y_n)\), donde cada diferencia dividida se calcula recursivamente.
+                    Esto permite expresar el polinomio interpolante en la forma de Newton, que es más eficiente para evaluar y
+                    actualizar con nuevos puntos.
+                </p>
+            </article>
+        </section>
+        
+        <section class="articles-section">
+            <article class="half-width">
+                <h2>Fórmula que lo define</h2>
+                <p>
+                    El polinomio interpolante se expresa como:
+                    $$P(x) = f[x_0] + f[x_0,x_1](x - x_0) + f[x_0,x_1,x_2](x - x_0)(x - x_1) + \dots + f[x_0, \dots, x_n] \prod_{i=0}^{n-1} (x - x_i)$$
+                </p>
+                <p>
+                    Donde las diferencias divididas se calculan recursivamente:
+                    $$f[x_i, \dots, x_{i+k}] = \frac{f[x_{i+1}, \dots, x_{i+k}] - f[x_i, \dots, x_{i+k-1}]}{x_{i+k} - x_i}$$
+                </p>
+            </article>
+            <article class="half-width">
+                <h2>Antecedentes y Relación con Otros Métodos</h2>
+                <p> El método de diferencias divididas es una variante eficiente de la interpolación polinómica, estrechamente
+                    relacionado con el polinomio de Newton. A diferencia de Lagrange, que usa polinomios base explícitos, este
+                    método aprovecha una estructura de tabla para reducir el costo computacional. Es especialmente útil cuando se
+                    añaden nuevos puntos de interpolación, ya que no requiere recalcular todo el polinomio desde cero.
+                </p>
+            </article>
+        </section>
+        
+        <section class="text-section">
+            <h2>Aplicaciones</h2>
+            <p>El método de diferencias divididas tiene aplicaciones en una amplia variedad de campos donde se requiere
+                aproximar funciones basándose en un conjunto limitado de datos. En análisis numérico se utiliza para la
+                interpolación de datos experimentales, en gráficos por computadora para el trazado de curvas, y en derivación
+                numérica cuando solo se tienen datos discretos. Su principal ventaja es la eficiencia computacional al trabajar
+                con muchos puntos de interpolación.
+            </p>
+        </section>
+
+
+
+
+        <section class="title-section">
+            <h2>Ejemplo</h2>
+        </section>
+
+        <section class="articles-section">
+
+            <article class="half-width">
+                <h2>Algoritmo</h2>
+                <ol>
+                    <li>Dado un conjunto de <strong>n+1 puntos</strong> \((x_0, y_0), (x_1, y_1), \dots, (x_n, y_n)\):</li>
+                    <li><strong>Construir la tabla de diferencias divididas</strong>:
+                        <ul style="list-style-type: none;">
+                            <li>a) Primera columna: \(f[x_i] = y_i\) (diferencias de orden 0)</li>
+                            <li>b) Para cada orden k (de 1 a n):</li>
+                            <li>  \(f[x_i,...,x_{i+k}] = \frac{f[x_{i+1},...,x_{i+k}] - f[x_i,...,x_{i+k-1}]}{x_{i+k}-x_i}\)</li>
+                        </ul>
+                    </li>
+                    <li><strong>Construir el polinomio de Newton</strong>:
+                        \[
+                        P(x) = f[x_0] + f[x_0,x_1](x-x_0) + f[x_0,x_1,x_2](x-x_0)(x-x_1) + \cdots + f[x_0,...,x_n]\prod_{i=0}^{n-1}(x-x_i)
+                        \]
+                    </li>
+                    <li><strong>Evaluar el polinomio</strong> en el punto deseado \(x^*\) mediante sustitución directa.</li>
+                </ol>
+                
+                <h2>Ejemplo de tabla de diferencias divididas (n=3):</h2>
+                <table border="1">
+                    <tr>
+                        <th>\(x_i\)</th>
+                        <th>\(f[x_i]\)</th>
+                        <th>1° orden</th>
+                        <th>2° orden</th>
+                        <th>3° orden</th>
+                    </tr>
+                    <tr>
+                        <td>\(x_0\)</td>
+                        <td>\(f[x_0]\)</td>
+                        <td>\(f[x_0,x_1]\)</td>
+                        <td>\(f[x_0,x_1,x_2]\)</td>
+                        <td>\(f[x_0,x_1,x_2,x_3]\)</td>
+                    </tr>
+                    <tr>
+                        <td>\(x_1\)</td>
+                        <td>\(f[x_1]\)</td>
+                        <td>\(f[x_1,x_2]\)</td>
+                        <td>\(f[x_1,x_2,x_3]\)</td>
+                        <td>-</td>
+                    </tr>
+                    <tr>
+                        <td>\(x_2\)</td>
+                        <td>\(f[x_2]\)</td>
+                        <td>\(f[x_2,x_3]\)</td>
+                        <td>-</td>
+                        <td>-</td>
+                    </tr>
+                    <tr>
+                        <td>\(x_3\)</td>
+                        <td>\(f[x_3]\)</td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td>-</td>
+                    </tr>
+                </table>
+                
+                
+
+            </article>
+
+
+            
+            
+            
+        </section>
+        <section id="slider">
+            <div class="slider-container">
+
+                <img src="../../Images/DifDiv/Ejemplo1.PNG" class="image" alt="Imagen 1" />
+                <img src="../../Images/DifDiv/Ejemplo2.PNG" class="image" alt="Imagen 2"
+                    style="display:none;" />
+                <img src="../../Images/DifDiv/Ejemplo3.PNG" class="image" alt="Imagen 3"
+                    style="display:none;" />
+                            
+            
+
+                <div class="caption-container">
+                    <p>Descripción de la imagen 1</p>
+                </div>
+
+            </div>
+            <button id="leftArrow" onclick="previousImg()">❮</button>
+            <button id="rightArrow" onclick="nextImg()">❯</button>
+
+        </section>
+
+        
+        <nav class="navbar-centered">
+            <ul class="nav-links">
+                <li><a href="./metodoDifdiv.html">Método de Diferencias divididas</a></li>
+                <li><a href="./metodoTrap.html">Método de Trapecio</a></li>
+                <li><a href="./metodoSimpson.html">Método de Simpson 1/3 y 3/8</a></li>
+                <li><a href="./metodoRomberg">Método de Romberg y Richardson
+                </a></li>
+                <li><a href="./metodoEuler"> Método de Euler y Euler modificado</a></li>
+                <li><a href="./metodoRungeKutta">Método de Runge-Kutta</a></li>
+            </ul>
+        </nav>
+
+        <footer>
+            <p>JESUS LEONARDO JIMENEZ GONZALEZ - 735817</p>
+        </footer>
+    </main>
+
+   
+    <script src="../../Scripts/sliderNewt.js"></script>
+</body>
+
+</html>
