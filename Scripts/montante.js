@@ -152,4 +152,6 @@ function printSolution(solution) {
     matrixOutputDiv.appendChild(solutionDiv);
 
     MathJax.typesetPromise();
+
+    
 }
