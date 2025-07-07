@@ -1,13 +1,16 @@
 function createMatrixInputs() {
+    console.log("Botón Crear Matriz presionado");
+    
     const dimension = parseInt(document.getElementById('dimension').value);
     const matrixInputsDiv = document.getElementById('matrixInputs');
     const matrixOutputDiv = document.getElementById('matrixOutput');
+    
     matrixInputsDiv.innerHTML = ''; // Limpiar los inputs previos
     matrixInputsDiv.classList.add("matrix-grid"); // Agregar clase contenedora
     matrixOutputDiv.innerHTML = ''; // Limpiar los outputs previos
 
     for (let i = 0; i < dimension; i++) {
-        const rowDiv = document.createElement("div"); // Fila para mejor organización
+        const rowDiv = document.createElement("div");
         rowDiv.classList.add("matrix-row");
 
         for (let j = 0; j < dimension + 1; j++) {
@@ -16,7 +19,7 @@ function createMatrixInputs() {
             input.id = `matrix_${i}_${j}`;
             input.name = `matrix_${i}_${j}`;
             input.required = true;
-            input.classList.add("matrix-input"); // Agregar clase a los inputs
+            input.classList.add("matrix-input");
             rowDiv.appendChild(input);
         }
 
@@ -50,7 +53,6 @@ function solveMatrix() {
     }
 }
 
-
 function montante(matrix) {
     let n = matrix.length;
     let pivote = 1;
@@ -61,7 +63,7 @@ function montante(matrix) {
             let swapped = false;
             for (let i = k + 1; i < n; i++) {
                 if (matrix[i][k] !== 0) {
-                    [matrix[k], matrix[i]] = [matrix[i], matrix[k]]; // Intercambiar filas
+                    [matrix[k], matrix[i]] = [matrix[i], matrix[k]];
                     swapped = true;
                     break;
                 }
@@ -91,7 +93,7 @@ function montante(matrix) {
 
     let solution = [];
     for (let i = 0; i < n; i++) {
-        solution.push(Number((matrix[i][n] / matrix[i][i]).toFixed(/4)));
+        solution.push(Number((matrix[i][n] / matrix[i][i]).toFixed(4)));
     }
 
     return solution;
@@ -101,23 +103,23 @@ function printMatrixLog(matrix, message) {
     const matrixOutputDiv = document.getElementById('matrixOutput');
 
     const stepDiv = document.createElement('div');
-    stepDiv.className = 'text-section'; // Mantiene el mismo estilo
+    stepDiv.className = 'text-section';
 
     const stepMessage = document.createElement('p');
     stepMessage.textContent = message;
     stepDiv.appendChild(stepMessage);
 
     const table = document.createElement('div');
-    table.classList.add('matrix-grid'); // Usa la misma clase
+    table.classList.add('matrix-grid');
 
     for (let i = 0; i < matrix.length; i++) {
         const rowDiv = document.createElement('div');
-        rowDiv.classList.add('matrix-row'); 
+        rowDiv.classList.add('matrix-row');
 
         for (let j = 0; j < matrix[i].length; j++) {
             const cell = document.createElement('input');
             cell.type = 'text';
-            cell.classList.add('matrix-input'); 
+            cell.classList.add('matrix-input');
             cell.value = matrix[i][j];
             cell.readOnly = true;
             rowDiv.appendChild(cell);
@@ -132,18 +134,16 @@ function printMatrixLog(matrix, message) {
     matrixOutputDiv.appendChild(hr);
 }
 
-
 function printSolution(solution) {
     const matrixOutputDiv = document.getElementById('matrixOutput');
     const solutionDiv = document.createElement('div');
-    solutionDiv.className = "text-section"; // Reutiliza la clase para dar estilo
+    solutionDiv.className = "text-section";
 
     let formattedSolution = "<h3>Solución:</h3><p>";
     for (let i = 0; i < solution.length; i++) {
-        // Formato en LaTeX
         formattedSolution += `\\(X_{${i + 1}} = ${solution[i]}\\)`;
         if (i < solution.length - 1) {
-            formattedSolution += ", "; // Coma entre las soluciones
+            formattedSolution += ", ";
         }
     }
     formattedSolution += "</p>";
@@ -151,8 +151,5 @@ function printSolution(solution) {
     solutionDiv.innerHTML = formattedSolution;
     matrixOutputDiv.appendChild(solutionDiv);
 
-    // Actualizar MathJax para renderizar las expresiones LaTeX
     MathJax.typesetPromise();
 }
-
-
